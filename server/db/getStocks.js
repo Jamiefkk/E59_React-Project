@@ -39,4 +39,3 @@ const waitingForFetch = async function() {
 }
 
 waitingForFetch();
-
