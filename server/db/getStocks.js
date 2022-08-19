@@ -1,13 +1,13 @@
 const fetch = require('node-fetch')
 
-const getStocks = function() {
-    return fetch("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&outputsize=full&apikey=BU5R6SXCHWVB2NP0")
+const getStocks = function(symbol) {
+    return fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&outputsize=full&apikey=BU5R6SXCHWVB2NP0`)
         .then(res => res.json())
         .then(result => result["Time Series (Daily)"])
 }
 
-const unpackStocks = async function() {
-    const stocks = await getStocks();
+const unpackStocks = async function(symbol) {
+    const stocks = await getStocks(symbol);
 
     const stockEntries = Object.entries(stocks)
    
@@ -26,8 +26,16 @@ use stocks
 db.dropDatabase();
 
 const waitingForFetch = async function() {
-    const stocksToInsert = await unpackStocks()
-    db.IBMDaily.insertMany(stocksToInsert);
+    const IBMStocksToInsert = await unpackStocks('IBM')
+    const appleStocksToInsert = await unpackStocks('AAPL')
+    const googleStocksToInsert = await unpackStocks('GOOGL')
+    const teslaStocksToInsert = await unpackStocks('TSLA')
+    const amazonStocksToInsert = await unpackStocks('AMZN')
+    db.IBMDaily.insertMany(IBMStocksToInsert);
+    db.AAPLDaily.insertMany(appleStocksToInsert);
+    db.GOOGLDaily.insertMany(googleStocksToInsert);
+    db.TSLADaily.insertMany(teslaStocksToInsert);
+    db.AMZNDaily.insertMany(amazonStocksToInsert);
 }
 
 waitingForFetch();
