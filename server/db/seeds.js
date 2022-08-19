@@ -7,32 +7,28 @@ const getStocks = function() {
 }
 
 const unpackStocks = async function() {
-    const stockArray = []
     const stocks = await getStocks();
 
-    console.log(stocks);
-
-
-    // for (const stock in stocks) {
-    //     const stockObject = new Object(stock);
-    //     stockArray.push(stockObject);
-    // }
-    for (let i = 0; stocks.length; i++) {
-        const stockObject = new Object(stocks[i]);
-        stockArray.push(stockObject)
-    }
-
-    return stockArray
+    const stockEntries = Object.entries(stocks)
+   
+    const stockObjects = stockEntries.map((entry)=>{
+        return {
+            date: entry[0],
+            info: entry[1]
+        }
+    })
+    
+    return stockObjects
+    
 }
 
 const stocksToInsert = unpackStocks()
 
 console.log(stocksToInsert);
 
-// use stocks
-// // db.dropDatabase()
+use stocks
+db.dropDatabase()
 
-// db.IBMDaily.insertMany(
-//     stocksToInsert
-// )
-
+db.IBMDaily.insertMany(
+    stocksToInsert
+)
