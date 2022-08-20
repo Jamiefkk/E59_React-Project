@@ -8,14 +8,16 @@ function wait(milliseconds) {
     } while (currentDate - date < milliseconds);
   }
 
-const getStocks = function(symbol) {
-    return fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_Daily&symbol=${symbol}&outputsize=full&apikey=BU5R6SXCHWVB2NP0`)
+const getStocks = async function(symbol, timePoint) {
+    console.log(symbol);
+    console.log("timepoint" + timePoint);
+    return await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_${timePoint}&symbol=${symbol}&outputsize=full&apikey=BU5R6SXCHWVB2NP0`)
         .then(res => res.json())
-        .then(result => result["Time Series (Daily)"])
+        .then(result => result[`Time Series (${timePoint})`])
 }
 
-const unpackStocks = async function(symbol) {
-    const stocks = await getStocks(symbol);
+const unpackStocks = async function(symbol, timePoint) {
+    const stocks = await getStocks(symbol, timePoint);
 
     const stockEntries = Object.entries(stocks)
    
@@ -34,16 +36,16 @@ use stocks
 db.dropDatabase();
 
 const waitingForFetch1 = async function() {
-    const IBMStocksToInsert = await unpackStocks('IBM')
-    const appleStocksToInsert = await unpackStocks('AAPL')
-    const googleStocksToInsert = await unpackStocks('GOOGL')
-    const teslaStocksToInsert = await unpackStocks('TSLA')
-    const amazonStocksToInsert = await unpackStocks('AMZN')
+    const IBMStocksToInsert = await unpackStocks('IBM', 'Daily')
+    // const appleStocksToInsert = await unpackStocks('AAPL')
+    // const googleStocksToInsert = await unpackStocks('GOOGL')
+    // const teslaStocksToInsert = await unpackStocks('TSLA')
+    // const amazonStocksToInsert = await unpackStocks('AMZN')
     db.IBMDaily.insertMany(IBMStocksToInsert);
-    db.AAPLDaily.insertMany(appleStocksToInsert);
-    db.GOOGLDaily.insertMany(googleStocksToInsert);
-    db.TSLADaily.insertMany(teslaStocksToInsert);
-    db.AMZNDaily.insertMany(amazonStocksToInsert);
+//     db.AAPLDaily.insertMany(appleStocksToInsert);
+//     db.GOOGLDaily.insertMany(googleStocksToInsert);
+//     db.TSLADaily.insertMany(teslaStocksToInsert);
+//     db.AMZNDaily.insertMany(amazonStocksToInsert);
 }
 
 const waitingForFetch2 = async function() {
@@ -63,10 +65,10 @@ const callAPI = async () => {
     console.log("First fetch starts");
     await waitingForFetch1();
     console.log("First fetch ends");
-    wait(60000);
-    console.log("Second fetch starts");
-    await waitingForFetch2();
-    console.log("Second fetch ends");
+    // wait(60000);
+    // console.log("Second fetch starts");
+    // await waitingForFetch2();
+    // console.log("Second fetch ends");
 }
 
 callAPI();
