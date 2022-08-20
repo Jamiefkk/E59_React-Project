@@ -36,24 +36,26 @@ use stocks
 db.dropDatabase();
 
 const waitingForFetch1 = async function() {
-    const IBMStocksToInsert = await unpackStocks('IBM', 'Daily')
-    // const appleStocksToInsert = await unpackStocks('AAPL')
-    // const googleStocksToInsert = await unpackStocks('GOOGL')
-    // const teslaStocksToInsert = await unpackStocks('TSLA')
-    // const amazonStocksToInsert = await unpackStocks('AMZN')
+    const timePoint = 'Daily'
+    const IBMStocksToInsert = await unpackStocks('IBM', timePoint)
+    const appleStocksToInsert = await unpackStocks('AAPL', timePoint)
+    const googleStocksToInsert = await unpackStocks('GOOGL', timePoint)
+    const teslaStocksToInsert = await unpackStocks('TSLA', timePoint)
+    const amazonStocksToInsert = await unpackStocks('AMZN', timePoint)
     db.IBMDaily.insertMany(IBMStocksToInsert);
-//     db.AAPLDaily.insertMany(appleStocksToInsert);
-//     db.GOOGLDaily.insertMany(googleStocksToInsert);
-//     db.TSLADaily.insertMany(teslaStocksToInsert);
-//     db.AMZNDaily.insertMany(amazonStocksToInsert);
+    db.AAPLDaily.insertMany(appleStocksToInsert);
+    db.GOOGLDaily.insertMany(googleStocksToInsert);
+    db.TSLADaily.insertMany(teslaStocksToInsert);
+    db.AMZNDaily.insertMany(amazonStocksToInsert);
 }
 
 const waitingForFetch2 = async function() {
-    const microsoftStocksToInsert = await unpackStocks('MSFT')
-    const nvidiaStocksToInsert = await unpackStocks('NVDA')
-    const metaStocksToInsert = await unpackStocks('META')
-    const walmartStocksToInsert = await unpackStocks('WMT')
-    const exxonStocksToInsert = await unpackStocks('XOM')
+    const timePoint = 'Daily'
+    const microsoftStocksToInsert = await unpackStocks('MSFT', timePoint)
+    const nvidiaStocksToInsert = await unpackStocks('NVDA', timePoint)
+    const metaStocksToInsert = await unpackStocks('META', timePoint)
+    const walmartStocksToInsert = await unpackStocks('WMT', timePoint)
+    const exxonStocksToInsert = await unpackStocks('XOM', timePoint)
     db.MFSTDaily.insertMany(microsoftStocksToInsert);
     db.NVDADaily.insertMany(nvidiaStocksToInsert);
     db.METADaily.insertMany(metaStocksToInsert);
@@ -65,10 +67,10 @@ const callAPI = async () => {
     console.log("First fetch starts");
     await waitingForFetch1();
     console.log("First fetch ends");
-    // wait(60000);
-    // console.log("Second fetch starts");
-    // await waitingForFetch2();
-    // console.log("Second fetch ends");
+    wait(60000);
+    console.log("Second fetch starts");
+    await waitingForFetch2();
+    console.log("Second fetch ends");
 }
 
 callAPI();
