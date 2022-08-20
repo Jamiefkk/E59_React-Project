@@ -1,7 +1,15 @@
 const fetch = require('node-fetch')
 
+function wait(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+      currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
+  }
+
 const getStocks = function(symbol) {
-    return fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&outputsize=full&apikey=BU5R6SXCHWVB2NP0`)
+    return fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_Daily&symbol=${symbol}&outputsize=full&apikey=BU5R6SXCHWVB2NP0`)
         .then(res => res.json())
         .then(result => result["Time Series (Daily)"])
 }
@@ -25,7 +33,7 @@ const unpackStocks = async function(symbol) {
 use stocks
 db.dropDatabase();
 
-const waitingForFetch = async function() {
+const waitingForFetch1 = async function() {
     const IBMStocksToInsert = await unpackStocks('IBM')
     const appleStocksToInsert = await unpackStocks('AAPL')
     const googleStocksToInsert = await unpackStocks('GOOGL')
@@ -38,4 +46,23 @@ const waitingForFetch = async function() {
     db.AMZNDaily.insertMany(amazonStocksToInsert);
 }
 
-waitingForFetch();
+const waitingForFetch2 = async function() {
+    const microsoftStocksToInsert = await unpackStocks('MSFT')
+    const nvidiaStocksToInsert = await unpackStocks('NVDA')
+    const metaStocksToInsert = await unpackStocks('META')
+    const walmartStocksToInsert = await unpackStocks('WMT')
+    const exxonStocksToInsert = await unpackStocks('XOM')
+    db.MFSTDaily.insertMany(microsoftStocksToInsert);
+    db.NVDADaily.insertMany(nvidiaStocksToInsert);
+    db.METADaily.insertMany(metaStocksToInsert);
+    db.WMTDaily.insertMany(walmartStocksToInsert);
+    db.XOMDaily.insertMany(exxonStocksToInsert);
+}
+  
+  console.log("First fetch starts");
+  waitingForFetch1();
+  console.log("First fetch ends");
+  wait(60000);
+  console.log("Second fetch starts");
+  waitingForFetch2();
+  console.log("Second fetch ends");
