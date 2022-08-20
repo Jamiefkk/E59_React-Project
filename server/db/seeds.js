@@ -9,11 +9,17 @@ function wait(milliseconds) {
   }
 
 const getStocks = async function(symbol, timePoint) {
-    console.log(symbol);
-    console.log("timepoint" + timePoint);
+    let apiPath = "";
+    if (timePoint=='Daily') {
+        apiPath = "Time Series (Daily)"
+    } else if (timePoint=='Weekly') {
+        apiPath = "Weekly Time Series"
+    } else if (timePoint=='Monthly'){
+        apiPath = "Monthly Time Series"
+    }
     return await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_${timePoint}&symbol=${symbol}&outputsize=full&apikey=BU5R6SXCHWVB2NP0`)
         .then(res => res.json())
-        .then(result => result[`Time Series (${timePoint})`])
+        .then(result => result[apiPath])
 }
 
 const unpackStocks = async function(symbol, timePoint) {
@@ -63,14 +69,86 @@ const waitingForFetch2 = async function() {
     db.XOMDaily.insertMany(exxonStocksToInsert);
 }
 
+const waitingForFetch3 = async function() {
+    const timePoint = 'Weekly'
+    const IBMStocksToInsert = await unpackStocks('IBM', timePoint)
+    const appleStocksToInsert = await unpackStocks('AAPL', timePoint)
+    const googleStocksToInsert = await unpackStocks('GOOGL', timePoint)
+    const teslaStocksToInsert = await unpackStocks('TSLA', timePoint)
+    const amazonStocksToInsert = await unpackStocks('AMZN', timePoint)
+    db.IBMDWeekly.insertMany(IBMStocksToInsert);
+    db.AAPLWeekly.insertMany(appleStocksToInsert);
+    db.GOOGLWeekly.insertMany(googleStocksToInsert);
+    db.TSLAWeekly.insertMany(teslaStocksToInsert);
+    db.AMZNWeekly.insertMany(amazonStocksToInsert);
+}
+
+const waitingForFetch4 = async function() {
+    const timePoint = 'Weekly'
+    const microsoftStocksToInsert = await unpackStocks('MSFT', timePoint)
+    const nvidiaStocksToInsert = await unpackStocks('NVDA', timePoint)
+    const metaStocksToInsert = await unpackStocks('META', timePoint)
+    const walmartStocksToInsert = await unpackStocks('WMT', timePoint)
+    const exxonStocksToInsert = await unpackStocks('XOM', timePoint)
+    db.MFSTWeekly.insertMany(microsoftStocksToInsert);
+    db.NVDAWeekly.insertMany(nvidiaStocksToInsert);
+    db.METAWeekly.insertMany(metaStocksToInsert);
+    db.WMTWeekly.insertMany(walmartStocksToInsert);
+    db.XOMWeekly.insertMany(exxonStocksToInsert);
+}
+
+const waitingForFetch5 = async function() {
+    const timePoint = 'Monthly'
+    const IBMStocksToInsert = await unpackStocks('IBM', timePoint)
+    const appleStocksToInsert = await unpackStocks('AAPL', timePoint)
+    const googleStocksToInsert = await unpackStocks('GOOGL', timePoint)
+    const teslaStocksToInsert = await unpackStocks('TSLA', timePoint)
+    const amazonStocksToInsert = await unpackStocks('AMZN', timePoint)
+    db.IBMDMonthly.insertMany(IBMStocksToInsert);
+    db.AAPLMonthly.insertMany(appleStocksToInsert);
+    db.GOOGLMonthly.insertMany(googleStocksToInsert);
+    db.TSLAMonthly.insertMany(teslaStocksToInsert);
+    db.AMZNMonthly.insertMany(amazonStocksToInsert);
+}
+
+const waitingForFetch6 = async function() {
+    const timePoint = 'Monthly'
+    const microsoftStocksToInsert = await unpackStocks('MSFT', timePoint)
+    const nvidiaStocksToInsert = await unpackStocks('NVDA', timePoint)
+    const metaStocksToInsert = await unpackStocks('META', timePoint)
+    const walmartStocksToInsert = await unpackStocks('WMT', timePoint)
+    const exxonStocksToInsert = await unpackStocks('XOM', timePoint)
+    db.MFSTMonthly.insertMany(microsoftStocksToInsert);
+    db.NVDAMonthly.insertMany(nvidiaStocksToInsert);
+    db.METAMonthly.insertMany(metaStocksToInsert);
+    db.WMTMonthly.insertMany(walmartStocksToInsert);
+    db.XOMMonthly.insertMany(exxonStocksToInsert);
+}
+
 const callAPI = async () => {
-    console.log("First fetch starts");
+    console.log("1st fetch starts");
     await waitingForFetch1();
-    console.log("First fetch ends");
+    console.log("1st fetch ends");
     wait(60000);
-    console.log("Second fetch starts");
+    console.log("2nd fetch starts");
     await waitingForFetch2();
-    console.log("Second fetch ends");
+    console.log("2nd fetch ends");
+    wait(60000);
+    console.log("3rd fetch starts");
+    await waitingForFetch3();
+    console.log("3rd fetch ends");
+    wait(60000);
+    console.log("4th fetch starts");
+    await waitingForFetch4();
+    console.log("4th fetch ends");
+    wait(60000);
+    console.log("5th fetch starts");
+    await waitingForFetch5();
+    console.log("5th fetch ends");
+    wait(60000);
+    console.log("6th fetch starts");
+    await waitingForFetch6();
+    console.log("6th fetch ends");
 }
 
 callAPI();
