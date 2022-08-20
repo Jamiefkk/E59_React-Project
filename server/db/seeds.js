@@ -19,7 +19,7 @@ const unpackStocks = async function(symbol) {
 
     })
 
-    return stockObjects
+    return stockObjects.slice(0, 365)
 }
 
 use stocks
