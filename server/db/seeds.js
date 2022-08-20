@@ -58,11 +58,15 @@ const waitingForFetch2 = async function() {
     db.WMTDaily.insertMany(walmartStocksToInsert);
     db.XOMDaily.insertMany(exxonStocksToInsert);
 }
-  
-  console.log("First fetch starts");
-  waitingForFetch1();
-  console.log("First fetch ends");
-  wait(60000);
-  console.log("Second fetch starts");
-  waitingForFetch2();
-  console.log("Second fetch ends");
+
+const callAPI = async () => {
+    console.log("First fetch starts");
+    await waitingForFetch1();
+    console.log("First fetch ends");
+    wait(60000);
+    console.log("Second fetch starts");
+    await waitingForFetch2();
+    console.log("Second fetch ends");
+}
+
+callAPI();
