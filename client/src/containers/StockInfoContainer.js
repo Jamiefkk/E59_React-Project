@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import { getDailyBySymbol } from "../services/StockServices"
+import Highcharts from 'highcharts/highstock'
+import HighchartsReact from 'highcharts-react-official'
 
 const StockInfoContainer = () => {
     
@@ -45,7 +47,6 @@ const StockInfoContainer = () => {
             {
             data: IBMDaily,
             name: 'IBM',
-            color: '#ff6633'
           },
           {
             data: AAPLDaily,
@@ -55,7 +56,10 @@ const StockInfoContainer = () => {
       };
 
     return (
-        <></>
+        <HighchartsReact 
+            highcharts={Highcharts} 
+            constructorType={'stockChart'}
+            options={options} />
     )
 }
 
