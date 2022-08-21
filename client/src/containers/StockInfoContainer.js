@@ -47,11 +47,11 @@ const StockInfoContainer = () => {
             {
             data: IBMDaily,
             name: 'IBM',
-          },
-          {
+            },
+            {
             data: AAPLDaily,
             name: 'AAPL',
-          }
+            }
         ],
       };
 
