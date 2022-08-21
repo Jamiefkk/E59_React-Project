@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import { getDailyBySymbol } from "../services/StockServices"
+import Highcharts from 'highcharts/highstock'
+import HighchartsReact from 'highcharts-react-official'
 
 const StockInfoContainer = () => {
     
@@ -37,8 +39,27 @@ const StockInfoContainer = () => {
             })
     }, [])
     
+    const options = {
+        title: {
+          text: 'My stock chart'
+        },
+        series: [
+            {
+            data: IBMDaily,
+            name: 'IBM',
+            },
+            {
+            data: AAPLDaily,
+            name: 'AAPL',
+            }
+        ],
+      };
+
     return (
-        <h1>StockInfoContainer</h1>
+        <HighchartsReact 
+            highcharts={Highcharts} 
+            constructorType={'stockChart'}
+            options={options} />
     )
 }
 
