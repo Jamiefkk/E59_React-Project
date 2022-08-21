@@ -37,8 +37,25 @@ const StockInfoContainer = () => {
             })
     }, [])
     
+    const options = {
+        title: {
+          text: 'My stock chart'
+        },
+        series: [
+            {
+            data: IBMDaily,
+            name: 'IBM',
+            color: '#ff6633'
+          },
+          {
+            data: AAPLDaily,
+            name: 'AAPL',
+          }
+        ],
+      };
+
     return (
-        <h1>StockInfoContainer</h1>
+        <></>
     )
 }
 
