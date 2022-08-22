@@ -68,7 +68,7 @@ const waitingForFetch2 = async function() {
     const metaStocksToInsert = await unpackStocks('META', timePoint)
     const walmartStocksToInsert = await unpackStocks('WMT', timePoint)
     const exxonStocksToInsert = await unpackStocks('XOM', timePoint)
-    db.MFSTDaily.insertMany(microsoftStocksToInsert);
+    db.MSFTDaily.insertMany(microsoftStocksToInsert);
     db.NVDADaily.insertMany(nvidiaStocksToInsert);
     db.METADaily.insertMany(metaStocksToInsert);
     db.WMTDaily.insertMany(walmartStocksToInsert);
@@ -82,7 +82,7 @@ const waitingForFetch3 = async function() {
     const googleStocksToInsert = await unpackStocks('GOOGL', timePoint)
     const teslaStocksToInsert = await unpackStocks('TSLA', timePoint)
     const amazonStocksToInsert = await unpackStocks('AMZN', timePoint)
-    db.IBMDWeekly.insertMany(IBMStocksToInsert);
+    db.IBMWeekly.insertMany(IBMStocksToInsert);
     db.AAPLWeekly.insertMany(appleStocksToInsert);
     db.GOOGLWeekly.insertMany(googleStocksToInsert);
     db.TSLAWeekly.insertMany(teslaStocksToInsert);
@@ -96,7 +96,7 @@ const waitingForFetch4 = async function() {
     const metaStocksToInsert = await unpackStocks('META', timePoint)
     const walmartStocksToInsert = await unpackStocks('WMT', timePoint)
     const exxonStocksToInsert = await unpackStocks('XOM', timePoint)
-    db.MFSTWeekly.insertMany(microsoftStocksToInsert);
+    db.MSFTWeekly.insertMany(microsoftStocksToInsert);
     db.NVDAWeekly.insertMany(nvidiaStocksToInsert);
     db.METAWeekly.insertMany(metaStocksToInsert);
     db.WMTWeekly.insertMany(walmartStocksToInsert);
@@ -110,7 +110,7 @@ const waitingForFetch5 = async function() {
     const googleStocksToInsert = await unpackStocks('GOOGL', timePoint)
     const teslaStocksToInsert = await unpackStocks('TSLA', timePoint)
     const amazonStocksToInsert = await unpackStocks('AMZN', timePoint)
-    db.IBMDMonthly.insertMany(IBMStocksToInsert);
+    db.IBMMonthly.insertMany(IBMStocksToInsert);
     db.AAPLMonthly.insertMany(appleStocksToInsert);
     db.GOOGLMonthly.insertMany(googleStocksToInsert);
     db.TSLAMonthly.insertMany(teslaStocksToInsert);
@@ -124,7 +124,7 @@ const waitingForFetch6 = async function() {
     const metaStocksToInsert = await unpackStocks('META', timePoint)
     const walmartStocksToInsert = await unpackStocks('WMT', timePoint)
     const exxonStocksToInsert = await unpackStocks('XOM', timePoint)
-    db.MFSTMonthly.insertMany(microsoftStocksToInsert);
+    db.MSFTMonthly.insertMany(microsoftStocksToInsert);
     db.NVDAMonthly.insertMany(nvidiaStocksToInsert);
     db.METAMonthly.insertMany(metaStocksToInsert);
     db.WMTMonthly.insertMany(walmartStocksToInsert);
