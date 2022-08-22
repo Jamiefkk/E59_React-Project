@@ -4,7 +4,7 @@ import HighchartsReact from 'highcharts-react-official'
 const StockChart = ({IBM, AAPL, MSFT, TSLA, XOM}) => {
     const options = {
         title: {
-            text: 'My stock chart'
+            text: 'Stock Chart'
             },
         scrollbar: {
             enabled: false
