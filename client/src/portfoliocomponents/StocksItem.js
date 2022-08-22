@@ -41,11 +41,12 @@ const StocksItem = ({IBM, TSLA, AAPL, GOOGL, AMZN, addToPortfolio}) => {
 
   return (
     <SharesDisplay>
-        {IBMArray[0] > IBMArray[1] ? <li>IBM: {IBMArray[0]} 📈 <button value={IBMArray[0]} onClick={handleClick}>Add to Portfolio</button></li>  : <li>IBM: {IBMArray[0]} 📉 <button value={IBMArray[0]} onClick={handleClick}>Add to Portfolio</button></li>}
-        {TSLAArray[0] > TSLAArray[1] ? <li>TSLA: {TSLAArray[0]} 📈 <button onClick={handleClick}>Add to Portfolio</button></li>  : <li>TSLA: {TSLAArray[0]} 📉 <button onClick={handleClick}>Add to Portfolio</button></li>}
-        {AAPLArray[0] > AAPLArray[1] ? <li>AAPL: {AAPLArray[0]} 📈 <button onClick={handleClick}>Add to Portfolio</button></li>  : <li>AAPL: {AAPLArray[0]} 📉 <button onClick={handleClick}>Add to Portfolio</button></li>}
-        {GOOGLArray[0] > GOOGLArray[1] ? <li>GOOGL: {GOOGLArray[0]} 📈 <button onClick={handleClick}>Add to Portfolio</button></li>  : <li>GOOGL: {GOOGLArray[0]} 📉 <button onClick={handleClick}>Add to Portfolio</button></li>}
-        {AMZNArray[0] > AMZNArray[1] ? <li>AMZN: {AMZNArray[0]} 📈 <button onClick={handleClick}>Add to Portfolio</button></li>  : <li>AMZN: {AMZNArray[0]} 📉 <button onClick={handleClick}>Add to Portfolio</button></li>}
+        <li>IBM: {IBMArray[0]} {(IBMArray[0] > IBMArray[1]) ? <>📈</> : <>📉</>} <button key={IBM} value={IBMArray[0]} onClick={handleClick}>Add to Portfolio</button></li>
+        <li>TSLA: {TSLAArray[0]} {(TSLAArray[0] > TSLAArray[1]) ? <>📈</> : <>📉</>} <button key={TSLA} value={TSLAArray[0]} onClick={handleClick}>Add to Portfolio</button></li>
+        <li>AAPL: {AAPLArray[0]} {(AAPLArray[0] > AAPLArray[1]) ? <>📈</> : <>📉</>} <button key={AAPL} value={AAPLArray[0]} onClick={handleClick}>Add to Portfolio</button></li>
+        <li>GOOGL: {GOOGLArray[0]} {(GOOGLArray[0] > GOOGLArray[1]) ? <>📈</> : <>📉</>} <button key={GOOGL} value={GOOGLArray[0]} onClick={handleClick}>Add to Portfolio</button></li>
+        <li>AMZN: {AMZNArray[0]} {(AMZNArray[0] > AMZNArray[1]) ? <>📈</> : <>📉</>} <button key={AMZN} value={AMZNArray[0]} onClick={handleClick}>Add to Portfolio</button></li>
+
     </SharesDisplay>
   )
 }

@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import OwnedShares from '../portfoliocomponents/OwnedShares'
 import StocksList from '../portfoliocomponents/StocksList'
 
 const StocksPortfolioContainer = () => {
@@ -13,7 +14,9 @@ const StocksPortfolioContainer = () => {
 
   return (
     <>
+      <OwnedShares myStocks={myStocks}/>
       <StocksList addToPortfolio={addToPortfolio}/>
+
     </>
   )
 }

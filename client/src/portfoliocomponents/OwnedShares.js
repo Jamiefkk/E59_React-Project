@@ -1,8 +1,13 @@
 import React from 'react'
 
-const OwnedShares = () => {
+const OwnedShares = ({myStocks}) => {
+
+  const initialValue = 0
+  const portfolioTotal = myStocks.reduce((previousValue, currentValue) => 
+    parseFloat(previousValue) + parseFloat(currentValue), initialValue)
+
   return (
-    <div>OwnedShares</div>
+    <div>Total Portfolio Value: ${portfolioTotal.toFixed(2)}</div>
   )
 }
 
