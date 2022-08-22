@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import './StockTicker.css';
 import { getDailyBySymbol } from '../services/StockServices'
 import styled from 'styled-components'
 
