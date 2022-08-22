@@ -6,8 +6,12 @@ const StockChart = ({IBM, AAPL, MSFT, TSLA, XOM}) => {
         title: {
             text: 'My stock chart'
             },
+        
         legend: {
-            enabled: true
+            enabled: true,
+            align: 'right',
+            layout: 'vertical',
+            verticalAlign: 'middle',
         },
         series: [
         {
