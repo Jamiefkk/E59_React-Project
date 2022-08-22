@@ -38,17 +38,11 @@ const StockInfoContainer = () => {
         getDailyBySymbol('AMZN')
             .then(allAMZNDaily => {
                 setAMZNDaily(allAMZNDaily)
-        compileStockData()
-        .then(data => {
-            setTicker(data)
-        })
+
         
 
             })
     }, [])
-    const compileStockData = () => {
-        return ("IBM " + IBMDaily[0].y)
-    }
     
     const options = {
         title: {
