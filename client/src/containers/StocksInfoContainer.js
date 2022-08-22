@@ -6,6 +6,7 @@ import StockTicker from "../components/StockTicker"
 import StockChart from "../StocksInfoComponents/StockChart"
 
 const StocksInfoContainer = () => {
+
     
     const [IBMDaily, setIBMDaily] = useState([])
     const [AAPLDaily, setAAPLDaily] = useState([])
@@ -75,3 +76,4 @@ const StocksInfoContainer = () => {
 }
 
 export default StocksInfoContainer
+
