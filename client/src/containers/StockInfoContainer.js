@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { getDailyBySymbol } from "../services/StockServices"
-
+import Highcharts from 'highcharts/highstock'
+import HighchartsReact from 'highcharts-react-official'
+import StockTicker from "../components/StockTicker"
 import StockChart from "../StocksInfoComponents/StockChart"
 
 const StockInfoContainer = () => {
@@ -31,6 +33,7 @@ const StockInfoContainer = () => {
                 setTSLADaily(allTSLADaily)
                 
             })
+
         getDailyBySymbol('XOM')
             .then(allXOMDaily => {
                 setXOMDaily(allXOMDaily)
@@ -39,12 +42,15 @@ const StockInfoContainer = () => {
     }, [])
     
    return(
-    <StockChart 
+    <>
+      <StockTicker/>
+      <StockChart 
         IBM={IBMDaily} 
         AAPL={AAPLDaily} 
         MSFT={MSFTDaily}
         TSLA={TSLADaily}
         XOM={XOMDaily} />
+    </>
    )
 }
 
