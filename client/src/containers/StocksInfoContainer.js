@@ -5,13 +5,17 @@ import HighchartsReact from 'highcharts-react-official'
 import StockTicker from "../components/StockTicker"
 import StockChart from "../StocksInfoComponents/StockChart"
 
-const StockInfoContainer = () => {
+const StocksInfoContainer = () => {
+
     
     const [IBMDaily, setIBMDaily] = useState([])
     const [AAPLDaily, setAAPLDaily] = useState([])
     const [MSFTDaily, setMSFTDaily] = useState([])
     const [TSLADaily, setTSLADaily] = useState([])
     const [XOMDaily, setXOMDaily] = useState([])
+    const [WMTDaily, setWMTDaily] = useState([])
+    const [NVDADaily, setNVDADaily] = useState([])
+    const [METADaily, setMETADaily] = useState([])
 
     useEffect(() => {
         getDailyBySymbol('IBM')
@@ -31,12 +35,26 @@ const StockInfoContainer = () => {
         getDailyBySymbol('TSLA')
             .then(allTSLADaily => {
                 setTSLADaily(allTSLADaily)
-                
             })
 
         getDailyBySymbol('XOM')
             .then(allXOMDaily => {
                 setXOMDaily(allXOMDaily)
+                
+            })
+        getDailyBySymbol('WMT')
+            .then(allWMTDaily => {
+                setWMTDaily(allWMTDaily)
+                
+            })
+        getDailyBySymbol('NVDA')
+            .then(allNVDADaily => {
+                setNVDADaily(allNVDADaily)
+                
+            })
+        getDailyBySymbol('META')
+            .then(allMETADaily => {
+                setMETADaily(allMETADaily)
                 
             })
     }, [])
@@ -49,9 +67,13 @@ const StockInfoContainer = () => {
         AAPL={AAPLDaily} 
         MSFT={MSFTDaily}
         TSLA={TSLADaily}
-        XOM={XOMDaily} />
+        XOM={XOMDaily}
+        WMT={WMTDaily}
+        NVDA={NVDADaily}
+        META={METADaily} />
     </>
    )
 }
 
-export default StockInfoContainer
+export default StocksInfoContainer
+

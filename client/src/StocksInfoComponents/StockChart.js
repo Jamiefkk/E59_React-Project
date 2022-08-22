@@ -1,10 +1,10 @@
 import Highcharts from 'highcharts/highstock'
 import HighchartsReact from 'highcharts-react-official'
 
-const StockChart = ({IBM, AAPL, MSFT, TSLA, XOM}) => {
+const StockChart = ({IBM, AAPL, MSFT, TSLA, XOM, WMT, NVDA, META}) => {
     const options = {
         title: {
-            text: 'My stock chart'
+            text: 'Stock Chart'
             },
         scrollbar: {
             enabled: false
@@ -23,6 +23,7 @@ const StockChart = ({IBM, AAPL, MSFT, TSLA, XOM}) => {
             data: IBM,
             name: 'IBM',
             compare: 'percent'
+
         },
         {
             data: AAPL,
@@ -42,6 +43,21 @@ const StockChart = ({IBM, AAPL, MSFT, TSLA, XOM}) => {
         {
             data: XOM,
             name: 'XOM',
+            compare: 'percent'
+        },
+        {
+            data: NVDA,
+            name: 'NVDA',
+            compare: 'percent'
+        },
+        {
+            data: META,
+            name: 'META',
+            compare: 'percent'
+        },
+        {
+            data: WMT,
+            name: 'WMT',
             compare: 'percent'
         },
         ]
