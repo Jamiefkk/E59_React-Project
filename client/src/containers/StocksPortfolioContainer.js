@@ -1,25 +1,27 @@
-import React, {useEffect, useState} from 'react'
-import OwnedShares from '../portfoliocomponents/OwnedShares'
-import StocksList from '../portfoliocomponents/StocksList'
-import { postPurchase } from '../services/PortfolioService'
+import React, {useEffect, useState} from 'react';
+import OwnedShares from '../portfoliocomponents/OwnedShares';
+import StocksList from '../portfoliocomponents/StocksList';
+import { getStocks } from '../services/PortfolioService';
 
 const StocksPortfolioContainer = () => {
 
   const [myStocks, setMyStocks] = useState([])
 
-  const addToPortfolio = (stock) => {
-    const newArray = [...myStocks, stock]
-    setMyStocks(newArray)
-  }
+  useEffect(()=>{
+    getStocks().then((allStocks)=>{
+      setMyStocks(allStocks);
+    })
+  }, [myStocks]);
+
 
 
   return (
     <>
       <OwnedShares myStocks={myStocks}/>
-      <StocksList addToPortfolio={addToPortfolio}/>
+      <StocksList/>
 
     </>
   )
 }
 
-export default StocksPortfolioContainer
+export default StocksPortfolioContainer;
