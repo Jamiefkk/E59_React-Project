@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import './StockTicker.css';
 import { getDailyBySymbol } from '../services/StockServices'
+import styled from 'styled-components'
 
 
 const StockTicker = () => {
@@ -71,7 +72,7 @@ const StockTicker = () => {
                 const today = allDaily.slice(0, 2)
                 let value = today[0].y
                 let difference = today[0].y - today[1].y
-                setMSFTDaily(`AAPL: ${value}(${difference.toFixed(2)})`)
+                setMSFTDaily(`MSFT: ${value}(${difference.toFixed(2)})`)
                 
             })
         getDailyBySymbol('NVDA')
@@ -102,21 +103,52 @@ const StockTicker = () => {
 
 
  return (
-    <div class="hwrap"><div class="hmove">
-    <div class="hitem">{IBMDaily}</div>
-    <div class="hitem">{AAPLDaily}</div>
-    <div class="hitem">{GOOGLDaily}</div>
-    <div class="hitem">{TSLADaily}</div>
-    <div class="hitem">{AMZNDaily}</div>
-    <div class="hitem">{WMTDaily}</div>
-    <div class="hitem">{MSFTDaily}</div>
-    <div class="hitem">{METADaily}</div>
-    <div class="hitem">{XOMDaily}</div>
-    <div class="hitem">{NVDADaily}</div>
-
-  </div></div>
+    <Wrapper>
+        <ScrollBar>
+            <TickerItem>{IBMDaily}</TickerItem>
+            <TickerItem>{AAPLDaily}</TickerItem>
+            <TickerItem>{GOOGLDaily}</TickerItem>
+            <TickerItem>{TSLADaily}</TickerItem>
+            <TickerItem>{AMZNDaily}</TickerItem>
+            <TickerItem>{WMTDaily}</TickerItem>
+            <TickerItem>{MSFTDaily}</TickerItem>
+            <TickerItem>{METADaily}</TickerItem>
+            <TickerItem>{XOMDaily}</TickerItem>
+            <TickerItem>{NVDADaily}</TickerItem>
+        </ScrollBar>
+    </Wrapper>
   )
 
 }
+
+const Wrapper = styled.div`
+    overflow: hidden; /* HIDE SCROLL BAR */
+    background: rgb(255, 255, 255);
+`
+
+const ScrollBar = styled.div`
+    display: inline-flex;
+    animation: tickerh linear 45s infinite;
+
+    @keyframes tickerh {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+    }
+
+    &:hover {
+        animation-play-state: paused; 
+    }
+`
+
+const TickerItem = styled.div`
+    flex-shrink: 0;
+    width: 200px;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-right: 15px;
+    text-align: center;
+
+    
+`
 
 export default StockTicker
