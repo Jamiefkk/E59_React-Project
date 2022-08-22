@@ -6,7 +6,11 @@ export const getDailyBySymbol = (symbol) => {
         .then(data => {
             const newArray = []
             for (const object of data) {
-                const convertedObject = {x: Date.parse(object.date), y: parseFloat(object.info['4. close'])}
+                const date = Date.parse(object.date)
+                const convertedObject = {
+                    x: date,
+                    y: parseFloat(object.info['4. close'])
+                }
                 newArray.push(convertedObject)
             }
             return newArray

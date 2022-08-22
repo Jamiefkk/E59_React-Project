@@ -41,15 +41,16 @@ const StockInfoContainer = () => {
     
     const options = {
         title: {
-          text: 'My stock chart'
+          text: 'Stock Prices'
         },
+        type: 'line',
         series: [
             {
-            data: IBMDaily,
-            name: 'IBM',
+            data: IBMDaily.reverse(),
+            name: 'IBM'
             },
             {
-            data: AAPLDaily,
+            data: AAPLDaily.reverse(),
             name: 'AAPL',
             }
         ],
