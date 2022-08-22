@@ -10,7 +10,10 @@ const StocksItem = ({IBM, TSLA, AAPL, GOOGL, AMZN, addToPortfolio}) => {
     const AMZNArray = []
 
     const handleClick = (event) => {
-        addToPortfolio(event.target.value)
+        addToPortfolio({
+            key: event.target.name,
+            value: event.target.value
+        })
     }
 
     const IBMVal = IBM.map((n) => {
@@ -41,12 +44,12 @@ const StocksItem = ({IBM, TSLA, AAPL, GOOGL, AMZN, addToPortfolio}) => {
 
   return (
     <SharesDisplay>
-        <li>IBM: {IBMArray[0]} {(IBMArray[0] > IBMArray[1]) ? <>📈</> : <>📉</>} <button key={IBM} value={IBMArray[0]} onClick={handleClick}>Add to Portfolio</button></li>
-        <li>TSLA: {TSLAArray[0]} {(TSLAArray[0] > TSLAArray[1]) ? <>📈</> : <>📉</>} <button key={TSLA} value={TSLAArray[0]} onClick={handleClick}>Add to Portfolio</button></li>
-        <li>AAPL: {AAPLArray[0]} {(AAPLArray[0] > AAPLArray[1]) ? <>📈</> : <>📉</>} <button key={AAPL} value={AAPLArray[0]} onClick={handleClick}>Add to Portfolio</button></li>
-        <li>GOOGL: {GOOGLArray[0]} {(GOOGLArray[0] > GOOGLArray[1]) ? <>📈</> : <>📉</>} <button key={GOOGL} value={GOOGLArray[0]} onClick={handleClick}>Add to Portfolio</button></li>
-        <li>AMZN: {AMZNArray[0]} {(AMZNArray[0] > AMZNArray[1]) ? <>📈</> : <>📉</>} <button key={AMZN} value={AMZNArray[0]} onClick={handleClick}>Add to Portfolio</button></li>
-
+        <li>IBM: {IBMArray[0]} {(IBMArray[0] > IBMArray[1]) ? <>📈</> : <>📉</>} <button name='IBM' value={IBMArray[0]} onClick={handleClick}>Add to Portfolio</button></li>
+        <li>TSLA: {TSLAArray[0]} {(TSLAArray[0] > TSLAArray[1]) ? <>📈</> : <>📉</>} <button name='TSLA' value={TSLAArray[0]} onClick={handleClick}>Add to Portfolio</button></li>
+        <li>AAPL: {AAPLArray[0]} {(AAPLArray[0] > AAPLArray[1]) ? <>📈</> : <>📉</>} <button name='AAPL' value={AAPLArray[0]} onClick={handleClick}>Add to Portfolio</button></li>
+        <li>GOOGL: {GOOGLArray[0]} {(GOOGLArray[0] > GOOGLArray[1]) ? <>📈</> : <>📉</>} <button name='GOOGL' value={GOOGLArray[0]} onClick={handleClick}>Add to Portfolio</button></li>
+        <li>AMZN: {AMZNArray[0]} {(AMZNArray[0] > AMZNArray[1]) ? <>📈</> : <>📉</>} <button name='AMZN' value={AMZNArray[0]} onClick={handleClick}>Add to Portfolio</button></li>
+        
     </SharesDisplay>
   )
 }
