@@ -6,7 +6,12 @@ const StockChart = ({IBM, AAPL, MSFT, TSLA, XOM}) => {
         title: {
             text: 'My stock chart'
             },
-        
+        scrollbar: {
+            enabled: false
+        },
+        navigator: {
+            enabled: false
+        },
         legend: {
             enabled: true,
             align: 'right',
@@ -17,22 +22,27 @@ const StockChart = ({IBM, AAPL, MSFT, TSLA, XOM}) => {
         {
             data: IBM,
             name: 'IBM',
+            compare: 'percent'
         },
         {
             data: AAPL,
-            name: 'AAPL'
+            name: 'AAPL',
+            compare: 'percent'
         },
         {
             data: MSFT,
-            name: 'MSFT'
+            name: 'MSFT',
+            compare: 'percent'
         },
         {
             data: TSLA,
-            name: 'TSLA'
+            name: 'TSLA',
+            compare: 'percent'
         },
         {
             data: XOM,
-            name: 'XOM'
+            name: 'XOM',
+            compare: 'percent'
         },
         ]
     };
