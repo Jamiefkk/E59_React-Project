@@ -13,7 +13,8 @@ export const getDailyBySymbol = (symbol) => {
                 }
                 newArray.push(convertedObject)
             }
-            return newArray
+            const reversedArray = newArray.reverse()
+            return reversedArray
         }
     )};
 
