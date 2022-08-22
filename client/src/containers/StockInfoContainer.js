@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { getDailyBySymbol } from "../services/StockServices"
 import Highcharts from 'highcharts/highstock'
 import HighchartsReact from 'highcharts-react-official'
+import StockTicker from "../components/StockTicker"
 
 const StockInfoContainer = () => {
     
@@ -10,6 +11,8 @@ const StockInfoContainer = () => {
     const [GOOGLDaily, setGOOGLDaily] = useState([])
     const [TSLADaily, setTSLADaily] = useState([])
     const [AMZNDaily, setAMZNDaily] = useState([])
+    const [ticker, setTicker] = useState([])
+
 
     useEffect(() => {
         getDailyBySymbol('IBM')
@@ -56,10 +59,13 @@ const StockInfoContainer = () => {
       };
 
     return (
+        <>
+        <StockTicker ticker={ticker}/>
         <HighchartsReact 
             highcharts={Highcharts} 
             constructorType={'stockChart'}
             options={options} />
+        </>
     )
 }
 
