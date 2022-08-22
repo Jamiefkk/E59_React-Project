@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import { postPurchase } from '../services/PortfolioService';
 
 
 const StocksItem = ({IBM, TSLA, AAPL, GOOGL, AMZN, addToPortfolio}) => {
@@ -13,6 +14,10 @@ const StocksItem = ({IBM, TSLA, AAPL, GOOGL, AMZN, addToPortfolio}) => {
         addToPortfolio({
             key: event.target.name,
             value: event.target.value
+        })
+        postPurchase({
+            key: event.target.name,
+            value: parseFloat(event.target.value)
         })
     }
 

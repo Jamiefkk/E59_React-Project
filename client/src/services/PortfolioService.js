@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost9000:api/portfolio'
+const baseURL = 'http://localhost:9000/api/portfolio'
 
 export const postPurchase = (payload) => {
     return fetch(baseURL, {

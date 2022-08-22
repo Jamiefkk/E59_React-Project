@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import OwnedShares from '../portfoliocomponents/OwnedShares'
 import StocksList from '../portfoliocomponents/StocksList'
+import { postPurchase } from '../services/PortfolioService'
 
 const StocksPortfolioContainer = () => {
 
