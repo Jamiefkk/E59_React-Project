@@ -16,52 +16,75 @@ const StocksInfoContainer = () => {
     const [WMTDaily, setWMTDaily] = useState([])
     const [NVDADaily, setNVDADaily] = useState([])
     const [METADaily, setMETADaily] = useState([])
+    const [ticker, setTicker] = useState([])
+
 
     useEffect(() => {
         getDailyBySymbol('IBM')
-            .then(allIBMDaily => {
-                setIBMDaily(allIBMDaily)  
+            .then(allDaily => {
+                setIBMDaily(allDaily)  
+                createTickerData(allDaily, 'IBM')
             })
         getDailyBySymbol('AAPL')
-            .then(allAAPLDaily => {
-                setAAPLDaily(allAAPLDaily)
+            .then(allDaily => {
+                setAAPLDaily(allDaily)
+                createTickerData(allDaily, 'AAPL')
                 
             })
         getDailyBySymbol('MSFT')
-            .then(allMSFTDaily => {
-                setMSFTDaily(allMSFTDaily)
-                
+            .then(allDaily => {
+                setMSFTDaily(allDaily)
+                createTickerData(allDaily, 'MSFT')
             })
         getDailyBySymbol('TSLA')
-            .then(allTSLADaily => {
-                setTSLADaily(allTSLADaily)
+            .then(allDaily => {
+                setTSLADaily(allDaily)
+                createTickerData(allDaily, 'TSLA')
             })
-
         getDailyBySymbol('XOM')
-            .then(allXOMDaily => {
-                setXOMDaily(allXOMDaily)
-                
+            .then(allDaily => {
+                setXOMDaily(allDaily)
+                createTickerData(allDaily, 'XOM')
             })
         getDailyBySymbol('WMT')
-            .then(allWMTDaily => {
-                setWMTDaily(allWMTDaily)
-                
+            .then(allDaily => {
+                setWMTDaily(allDaily)
+                createTickerData(allDaily, 'WMT')
             })
         getDailyBySymbol('NVDA')
-            .then(allNVDADaily => {
-                setNVDADaily(allNVDADaily)
-                
+            .then(allDaily => {
+                setNVDADaily(allDaily)
+                createTickerData(allDaily, 'NVDA')                
             })
         getDailyBySymbol('META')
-            .then(allMETADaily => {
-                setMETADaily(allMETADaily)
-                
+            .then(allDaily => {
+                setMETADaily(allDaily)
+                createTickerData(allDaily, 'META')
             })
     }, [])
+
+    const createTickerData = (loadedData, label) => {
+        let tickerDays = loadedData.slice(-2)
+        let todaysValue = tickerDays[1].y
+        let yesterdaysValue = tickerDays[0].y
+        let differenceFromDayBefore = (todaysValue - yesterdaysValue)
+        let differencePercentage = (differenceFromDayBefore - todaysValue)/todaysValue
+        const tickerObject = {
+            key: label,
+            value: todaysValue.toFixed(2),
+            percentage: differencePercentage.toFixed(2)
+        }
+        const temp = ticker.map(s=>s)
+        console.log(temp);
+        temp.push(tickerObject)
+        setTicker(temp)
+        console.log(ticker);
+
+    }
     
    return(
     <>
-      <StockTicker/>
+      <StockTicker ticker={ticker}/>
       <StockChart 
         IBM={IBMDaily} 
         AAPL={AAPLDaily} 
