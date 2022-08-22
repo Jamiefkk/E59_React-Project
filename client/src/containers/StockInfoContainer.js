@@ -7,9 +7,9 @@ const StockInfoContainer = () => {
     
     const [IBMDaily, setIBMDaily] = useState([])
     const [AAPLDaily, setAAPLDaily] = useState([])
-    const [GOOGLDaily, setGOOGLDaily] = useState([])
+    const [MSFTDaily, setMSFTDaily] = useState([])
     const [TSLADaily, setTSLADaily] = useState([])
-    const [AMZNDaily, setAMZNDaily] = useState([])
+    const [XOMDaily, setXOMDaily] = useState([])
 
     useEffect(() => {
         getDailyBySymbol('IBM')
@@ -22,9 +22,9 @@ const StockInfoContainer = () => {
                 setAAPLDaily(allAAPLDaily)
                 
             })
-        getDailyBySymbol('GOOGL')
-            .then(allGOOGLDaily => {
-                setGOOGLDaily(allGOOGLDaily)
+        getDailyBySymbol('MSFT')
+            .then(allMSFTDaily => {
+                setMSFTDaily(allMSFTDaily)
                 
             })
         getDailyBySymbol('TSLA')
@@ -32,9 +32,9 @@ const StockInfoContainer = () => {
                 setTSLADaily(allTSLADaily)
                 
             })
-        getDailyBySymbol('AMZN')
-            .then(allAMZNDaily => {
-                setAMZNDaily(allAMZNDaily)
+        getDailyBySymbol('XOM')
+            .then(allXOMDaily => {
+                setXOMDaily(allXOMDaily)
                 
             })
     }, [])
@@ -43,9 +43,28 @@ const StockInfoContainer = () => {
         title: {
             text: 'My stock chart'
             },
-        series: {
-            data: IBMDaily
-        }
+        series: [
+        {
+            data: IBMDaily,
+            name: 'IBM'
+        },
+        {
+            data: AAPLDaily,
+            name: 'AAPL'
+        },
+        {
+            data: MSFTDaily,
+            name: 'MSFT'
+        },
+        {
+            data: TSLADaily,
+            name: 'TSLA'
+        },
+        {
+            data: XOMDaily,
+            name: 'XOM'
+        },
+    ]
     };
 
     return (
