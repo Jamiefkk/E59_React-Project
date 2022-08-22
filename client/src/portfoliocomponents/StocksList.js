@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import SharesItem from './SharesItem'
+import StocksItem from './StocksItem'
 import { getDailyBySymbol } from '../services/StockServices'
 
-const SharesList = () => {
+const StocksList = ({addToPortfolio}) => {
     
     const [IBMDaily, setIBMDaily] = useState([])
     const [AAPLDaily, setAAPLDaily] = useState([])
@@ -46,9 +46,9 @@ const SharesList = () => {
  
  return (
     <>
-        <SharesItem IBM={IBMDaily} TSLA={TSLADaily} AMZN={AMZNDaily} GOOGL={GOOGLDaily} AAPL={AAPLDaily}/>
+        <StocksItem addToPortfolio={addToPortfolio} IBM={IBMDaily} TSLA={TSLADaily} AMZN={AMZNDaily} GOOGL={GOOGLDaily} AAPL={AAPLDaily}/>
     </>
   )
 }
 
-export default SharesList
+export default StocksList

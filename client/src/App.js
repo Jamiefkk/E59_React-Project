@@ -1,13 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import SharesPortfolioContainer from './containers/SharesPortfolioContainer';
-import StockInfoContainer from './containers/StockInfoContainer';
+import StocksPortfolioContainer from './containers/StocksPortfolioContainer';
+import StocksInfoContainer from './containers/StocksInfoContainer';
 
 function App() {
   return (
     <>
-      <StockInfoContainer/>
-      <SharesPortfolioContainer/>
+      <StocksInfoContainer/>
+      <StocksPortfolioContainer/>
     </>
   );
 }
