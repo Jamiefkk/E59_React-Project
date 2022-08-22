@@ -3,31 +3,29 @@ import { getDailyBySymbol } from "../services/StockServices"
 import Highcharts from 'highcharts/highstock'
 import HighchartsReact from 'highcharts-react-official'
 import StockTicker from "../components/StockTicker"
+import StockChart from "../StocksInfoComponents/StockChart"
 
 const StockInfoContainer = () => {
     
     const [IBMDaily, setIBMDaily] = useState([])
     const [AAPLDaily, setAAPLDaily] = useState([])
-    const [GOOGLDaily, setGOOGLDaily] = useState([])
+    const [MSFTDaily, setMSFTDaily] = useState([])
     const [TSLADaily, setTSLADaily] = useState([])
-    const [AMZNDaily, setAMZNDaily] = useState([])
-    const [ticker, setTicker] = useState("APPL 720.23 || GOOGL 132.12 ||")
-
+    const [XOMDaily, setXOMDaily] = useState([])
 
     useEffect(() => {
         getDailyBySymbol('IBM')
             .then(allIBMDaily => {
-                setIBMDaily(allIBMDaily)
-                
+                setIBMDaily(allIBMDaily)  
             })
         getDailyBySymbol('AAPL')
             .then(allAAPLDaily => {
                 setAAPLDaily(allAAPLDaily)
                 
             })
-        getDailyBySymbol('GOOGL')
-            .then(allGOOGLDaily => {
-                setGOOGLDaily(allGOOGLDaily)
+        getDailyBySymbol('MSFT')
+            .then(allMSFTDaily => {
+                setMSFTDaily(allMSFTDaily)
                 
             })
         getDailyBySymbol('TSLA')
@@ -35,40 +33,25 @@ const StockInfoContainer = () => {
                 setTSLADaily(allTSLADaily)
                 
             })
-        getDailyBySymbol('AMZN')
-            .then(allAMZNDaily => {
-                setAMZNDaily(allAMZNDaily)
 
-        
-
+        getDailyBySymbol('XOM')
+            .then(allXOMDaily => {
+                setXOMDaily(allXOMDaily)
+                
             })
     }, [])
     
-    const options = {
-        title: {
-          text: 'My stock chart'
-        },
-        series: [
-            {
-            data: IBMDaily,
-            name: 'IBM',
-            },
-            {
-            data: AAPLDaily,
-            name: 'AAPL',
-            }
-        ],
-      };
-
-    return (
-        <>
-        <StockTicker ticker={ticker}/>
-        <HighchartsReact 
-            highcharts={Highcharts} 
-            constructorType={'stockChart'}
-            options={options} />
-        </>
-    )
+   return(
+    <>
+      <StockTicker/>
+      <StockChart 
+        IBM={IBMDaily} 
+        AAPL={AAPLDaily} 
+        MSFT={MSFTDaily}
+        TSLA={TSLADaily}
+        XOM={XOMDaily} />
+    </>
+   )
 }
 
 export default StockInfoContainer
