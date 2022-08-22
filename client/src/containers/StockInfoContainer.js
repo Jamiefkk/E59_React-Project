@@ -11,7 +11,7 @@ const StockInfoContainer = () => {
     const [GOOGLDaily, setGOOGLDaily] = useState([])
     const [TSLADaily, setTSLADaily] = useState([])
     const [AMZNDaily, setAMZNDaily] = useState([])
-    const [ticker, setTicker] = useState([])
+    const [ticker, setTicker] = useState("APPL 720.23 || GOOGL 132.12 ||")
 
 
     useEffect(() => {
@@ -38,9 +38,17 @@ const StockInfoContainer = () => {
         getDailyBySymbol('AMZN')
             .then(allAMZNDaily => {
                 setAMZNDaily(allAMZNDaily)
-                
+        compileStockData()
+        .then(data => {
+            setTicker(data)
+        })
+        
+
             })
     }, [])
+    const compileStockData = () => {
+        return ("IBM " + IBMDaily[0].y)
+    }
     
     const options = {
         title: {
