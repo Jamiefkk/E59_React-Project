@@ -23,6 +23,7 @@ const StockChart = ({IBM, AAPL, MSFT, TSLA, XOM, WMT, NVDA, META}) => {
             data: IBM,
             name: 'IBM',
             compare: 'percent'
+
         },
         {
             data: AAPL,
