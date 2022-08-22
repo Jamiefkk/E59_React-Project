@@ -41,6 +41,12 @@ const unpackStocks = async function(symbol, timePoint) {
 use stocks
 db.dropDatabase();
 
+db.portfolio.insertOne(
+    {key: 'IBM',
+    value: 138.37    
+}
+)
+
 const waitingForFetch1 = async function() {
     const timePoint = 'Daily'
     const IBMStocksToInsert = await unpackStocks('IBM', timePoint)
