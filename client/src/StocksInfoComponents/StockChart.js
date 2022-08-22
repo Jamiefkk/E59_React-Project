@@ -6,10 +6,13 @@ const StockChart = ({IBM, AAPL, MSFT, TSLA, XOM}) => {
         title: {
             text: 'My stock chart'
             },
+        legend: {
+            enabled: true
+        },
         series: [
         {
             data: IBM,
-            name: 'IBM'
+            name: 'IBM',
         },
         {
             data: AAPL,
@@ -27,7 +30,7 @@ const StockChart = ({IBM, AAPL, MSFT, TSLA, XOM}) => {
             data: XOM,
             name: 'XOM'
         },
-    ]
+        ]
     };
 
     return (

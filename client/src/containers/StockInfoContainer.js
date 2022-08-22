@@ -14,8 +14,7 @@ const StockInfoContainer = () => {
     useEffect(() => {
         getDailyBySymbol('IBM')
             .then(allIBMDaily => {
-                setIBMDaily(allIBMDaily)
-                
+                setIBMDaily(allIBMDaily)  
             })
         getDailyBySymbol('AAPL')
             .then(allAAPLDaily => {
