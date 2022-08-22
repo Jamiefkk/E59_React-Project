@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { getDailyBySymbol } from '../services/StockServices'
 import styled from 'styled-components'
+import Marquee from 'react-fast-marquee'
 
 
 const StockTicker = () => {
@@ -22,7 +23,9 @@ const StockTicker = () => {
             .then(allDaily => {
                 const today = allDaily.slice(0, 2)
                 let value = today[0].y
-                let difference = today[0].y - today[1].y
+                console.log(value);
+                let difference = (today[0].y - today[1].y)
+                let differencePercentage = (today[0].y - today[1].y)
                 setIBMDaily(`IBM: ${value}(${difference.toFixed(2)})`)
                 
             })
@@ -38,7 +41,7 @@ const StockTicker = () => {
             .then(allDaily => {
                 const today = allDaily.slice(0, 2)
                 let value = today[0].y
-                let difference = today[0].y - today[1].y
+                let difference = (today[0].y - today[1].y)
                 setGOOGLDaily(`GOOGL: ${value}(${difference.toFixed(2)})`)
                 
             })
@@ -102,8 +105,9 @@ const StockTicker = () => {
 
 
  return (
-    <Wrapper>
-        <ScrollBar>
+        <Marquee 
+            pauseOnHover={true}
+            >
             <TickerItem>{IBMDaily}</TickerItem>
             <TickerItem>{AAPLDaily}</TickerItem>
             <TickerItem>{GOOGLDaily}</TickerItem>
@@ -114,30 +118,11 @@ const StockTicker = () => {
             <TickerItem>{METADaily}</TickerItem>
             <TickerItem>{XOMDaily}</TickerItem>
             <TickerItem>{NVDADaily}</TickerItem>
-        </ScrollBar>
-    </Wrapper>
+        </Marquee>
   )
 
 }
 
-const Wrapper = styled.div`
-    overflow: hidden; /* HIDE SCROLL BAR */
-    background: rgb(255, 255, 255);
-`
-
-const ScrollBar = styled.div`
-    display: inline-flex;
-    animation: tickerh linear 45s infinite;
-
-    @keyframes tickerh {
-    0% { transform: translate3d(0, 0, 0); }
-    100% { transform: translate3d(-50%, 0, 0); }
-    }
-
-    &:hover {
-        animation-play-state: paused; 
-    }
-`
 
 const TickerItem = styled.div`
     flex-shrink: 0;
@@ -145,9 +130,7 @@ const TickerItem = styled.div`
     box-sizing: border-box;
     padding: 10px;
     margin-right: 15px;
-    text-align: center;
-
-    
+    text-align: center;    
 `
 
 export default StockTicker
