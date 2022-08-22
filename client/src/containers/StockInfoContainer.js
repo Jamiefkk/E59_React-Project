@@ -41,26 +41,19 @@ const StockInfoContainer = () => {
     
     const options = {
         title: {
-          text: 'Stock Prices'
-        },
-        type: 'line',
-        series: [
-            {
-            data: IBMDaily.reverse(),
-            name: 'IBM'
+            text: 'My stock chart'
             },
-            {
-            data: AAPLDaily.reverse(),
-            name: 'AAPL',
-            }
-        ],
-      };
+        series: {
+            data: IBMDaily
+        }
+    };
 
     return (
         <HighchartsReact 
             highcharts={Highcharts} 
             constructorType={'stockChart'}
-            options={options} />
+            options={options}
+            />
     )
 }
 
