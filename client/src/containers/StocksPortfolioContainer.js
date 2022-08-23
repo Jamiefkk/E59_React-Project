@@ -13,31 +13,28 @@ const StocksPortfolioContainer = () => {
     const [users, setUsers] = useState([])
     const [selectedUser, setSelectedUser] = useState({})
 
-  const [myStocks, setMyStocks] = useState([])
+    const [myStocks, setMyStocks] = useState([])
 
-  const [IBMDaily, setIBMDaily] = useState([])
-  const [AAPLDaily, setAAPLDaily] = useState([])
-  const [MSFTDaily, setMSFTDaily] = useState([])
-  const [TSLADaily, setTSLADaily] = useState([])
-  const [XOMDaily, setXOMDaily] = useState([])
-  const [WMTDaily, setWMTDaily] = useState([])
-  const [NVDADaily, setNVDADaily] = useState([])
-  const [METADaily, setMETADaily] = useState([])
+    const [IBMDaily, setIBMDaily] = useState([])
+    const [AAPLDaily, setAAPLDaily] = useState([])
+    const [MSFTDaily, setMSFTDaily] = useState([])
+    const [TSLADaily, setTSLADaily] = useState([])
+    const [XOMDaily, setXOMDaily] = useState([])
+    const [WMTDaily, setWMTDaily] = useState([])
+    const [NVDADaily, setNVDADaily] = useState([])
+    const [METADaily, setMETADaily] = useState([])
 
-  useEffect(()=>{
-    // getStocks().then((allStocks)=>{
-    //   setMyStocks(allStocks);
-    // })
+    useEffect(()=>{
+        getUsers().then(allUsers => setUsers(allUsers))
+    }, []);
 
-    getUsers().then(allUsers => setUsers(allUsers))
-  }, []);
-
-  useEffect(() => {
-    getUsersPortfolio(selectedUser._id).then(portfolio => {
-        console.log('new portfolio');
-        setMyStocks(portfolio)
-  })}
-  , [selectedUser])
+    useEffect(() => {
+        if (selectedUser._id)
+            getUsersPortfolio(selectedUser._id).then(portfolio => {
+                console.log(portfolio);
+                setMyStocks(portfolio)
+            })
+    }, [selectedUser])
   
     const addToPortfolio = (stock) => {
       const copyMyStocks = [...myStocks, stock]

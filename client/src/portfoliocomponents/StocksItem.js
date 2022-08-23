@@ -22,7 +22,7 @@ const StocksItem = ({IBM, TSLA, AAPL, MSFT, META, NVDA, WMT, XOM, addToPortfolio
             date: Date.now(),
         }
         selectedUser.portfolio.push(stockToAdd)
-        updateUser(stockToAdd)
+        updateUser(selectedUser)
         addToPortfolio(stockToAdd)
     }
 

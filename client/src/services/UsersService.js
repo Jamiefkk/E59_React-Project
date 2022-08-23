@@ -8,9 +8,7 @@ export const getUsers = () => {
 export const getUsersPortfolio = (id) => {
     return fetch(baseURL + id)
         .then(res => res.json())
-        .then(data =>{
-            console.log(data);
-        } )
+        .then(data => data.portfolio)
 }
 
 export const updateUser = (payload) => {
