@@ -16,7 +16,7 @@ const StocksItem = ({IBM, TSLA, AAPL, MSFT, META, NVDA, WMT, XOM}) => {
     const handleClick = (event) => {
         postPurchase({
             key: event.target.name,
-            value: parseFloat(event.target.value),
+            purchaseValue: parseFloat(event.target.value),
             date: Date.now()
         })
     }

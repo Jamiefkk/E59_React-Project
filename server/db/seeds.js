@@ -43,7 +43,8 @@ db.dropDatabase();
 
 db.portfolio.insertOne(
     {key: 'IBM',
-    value: 138.37    
+    purchaseValue: 138.37,
+    date: Date.parse('2022-07-18')   
 }
 )
 
