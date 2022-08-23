@@ -68,7 +68,7 @@ const OwnedShares = ({myStocks, IBM, META, MSFT, XOM, AAPL, TSLA, WMT, NVDA}) =>
   return (
     <>
     <div>Total Portfolio Cost: ${portfolioTotal.toFixed(2)}</div>
-    <div>Adjusted Current Value of Portfolio: ${cVal}</div>
+    <div>Adjusted Current Value of Portfolio: ${cVal.toFixed(2)}</div>
     </>
   )
 }
