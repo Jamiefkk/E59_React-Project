@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import Compare from '../portfoliocomponents/Compare';
 import OwnedShares from '../portfoliocomponents/OwnedShares';
 import Pie from '../portfoliocomponents/PieChart';
 import StocksList from '../portfoliocomponents/StocksList';
@@ -23,6 +24,7 @@ const StocksPortfolioContainer = () => {
       <OwnedShares myStocks={myStocks}/>
       <StocksList addToPortfolio={addToPortfolio}/>
       <Pie myStocks={myStocks}/>
+      <Compare myStocks={myStocks}/>
     </>
   )
 }

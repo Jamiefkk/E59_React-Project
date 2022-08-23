@@ -10,7 +10,8 @@ export const getDailyBySymbol = (symbol) => {
                 const date = Date.parse(object.date)
                 const convertedObject = {
                     x: date,
-                    y: parseFloat(object.info['4. close'])
+                    y: parseFloat(object.info['4. close']),
+                    key: symbol
                 }
                 newArray.push(convertedObject)
             }

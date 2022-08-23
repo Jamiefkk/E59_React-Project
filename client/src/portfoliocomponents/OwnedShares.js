@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { getDailyBySymbol } from '../services/PortfolioService'
 
 const OwnedShares = ({myStocks}) => {
   const newStonks = []
@@ -9,8 +10,14 @@ const OwnedShares = ({myStocks}) => {
   const portfolioTotal = newStonks.reduce((previousValue, currentValue) => 
     parseFloat(previousValue) + parseFloat(currentValue), initialValue)
 
+    
+
+
   return (
-    <div>Total Portfolio Value: ${portfolioTotal.toFixed(2)}</div>
+    <>
+    <div>Total Portfolio Cost: ${portfolioTotal.toFixed(2)}</div>
+    {/* <div>Current Adjusted Portfolio Value: ${cVal.toFixed(2)}</div> */}
+    </>
   )
 }
 
