@@ -158,7 +158,7 @@ const callAPI = async () => {
     console.log("2nd fetch starts");
     await waitingForFetch2();
     console.log("2nd fetch ends");
-    wait(60000);
+    // wait(60000);
     // console.log("3rd fetch starts");
     // await waitingForFetch3();
     // console.log("3rd fetch ends");

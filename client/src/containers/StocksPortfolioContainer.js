@@ -6,12 +6,12 @@ import StocksList from '../portfoliocomponents/StocksList';
 import UserSelect from '../portfoliocomponents/UserSelect';
 import { getStocks, getStocksByUserID } from '../services/PortfolioService';
 import { getDailyBySymbol } from '../services/PortfolioService';
-import { getUsers } from '../services/UsersService';
+import { getUsers, getUsersPortfolio } from '../services/UsersService';
 
 const StocksPortfolioContainer = () => {
 
     const [users, setUsers] = useState([])
-    const [selectedUser, setSelectedUser] = useState(null)
+    const [selectedUser, setSelectedUser] = useState([])
 
   const [myStocks, setMyStocks] = useState([])
 
@@ -32,15 +32,12 @@ const StocksPortfolioContainer = () => {
     getUsers().then(allUsers => setUsers(allUsers))
   }, []);
 
-  useEffect(()=> {
-    console.log('type:' ,typeof(selectedUser._id));
-    if (selectedUser === null){
-        return
-    }
-    else {
-        getStocksByUserID(selectedUser._id).then(portfolio => setMyStocks(portfolio))
-    }
-  }, [selectedUser])
+  useEffect(() => {
+    getUsersPortfolio(selectedUser._id).then(portfolio => {
+        console.log('new portfolio');
+        setMyStocks(portfolio)
+  })}
+  , [selectedUser])
   
     const addToPortfolio = (stock) => {
       const copyMyStocks = [...myStocks, stock]
