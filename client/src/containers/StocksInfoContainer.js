@@ -19,68 +19,55 @@ const StocksInfoContainer = () => {
     const [ticker, setTicker] = useState([])
 
 
-    useEffect(() => {
+    useEffect( () => {
         getDailyBySymbol('IBM')
             .then(allDaily => {
-                setIBMDaily(allDaily)  
-                createTickerData(allDaily, 'IBM')
+                setIBMDaily(allDaily)
             })
         getDailyBySymbol('AAPL')
             .then(allDaily => {
                 setAAPLDaily(allDaily)
-                createTickerData(allDaily, 'AAPL')
-                
             })
         getDailyBySymbol('MSFT')
             .then(allDaily => {
-                setMSFTDaily(allDaily)
-                createTickerData(allDaily, 'MSFT')
+                setMSFTDaily(allDaily)         
             })
         getDailyBySymbol('TSLA')
             .then(allDaily => {
-                setTSLADaily(allDaily)
-                createTickerData(allDaily, 'TSLA')
+                setTSLADaily(allDaily)         
             })
         getDailyBySymbol('XOM')
             .then(allDaily => {
-                setXOMDaily(allDaily)
-                createTickerData(allDaily, 'XOM')
+                setXOMDaily(allDaily)   
             })
         getDailyBySymbol('WMT')
             .then(allDaily => {
                 setWMTDaily(allDaily)
-                createTickerData(allDaily, 'WMT')
             })
         getDailyBySymbol('NVDA')
             .then(allDaily => {
-                setNVDADaily(allDaily)
-                createTickerData(allDaily, 'NVDA')                
+                setNVDADaily(allDaily)        
             })
         getDailyBySymbol('META')
             .then(allDaily => {
                 setMETADaily(allDaily)
-                createTickerData(allDaily, 'META')
             })
+
     }, [])
 
-    const createTickerData = (loadedData, label) => {
-        let tickerDays = loadedData.slice(-2)
-        let todaysValue = tickerDays[1].y
-        let yesterdaysValue = tickerDays[0].y
-        let differenceFromDayBefore = (todaysValue - yesterdaysValue)
-        let differencePercentage = (differenceFromDayBefore - todaysValue)/todaysValue
-        const tickerObject = {
-            key: label,
-            value: todaysValue.toFixed(2),
-            percentage: differencePercentage.toFixed(2)
-        }
-        const temp = ticker.map(s=>s)
-        console.log(temp);
-        temp.push(tickerObject)
-        setTicker(temp)
-        console.log(ticker);
+    // const createTickerData = (loadedData, label) => {
+    //     let tickerDays = loadedData.slice(-2)
+    //     let todaysValue = tickerDays[1].y
+    //     let yesterdaysValue = tickerDays[0].y
+    //     let differenceFromDayBefore = (todaysValue - yesterdaysValue)
+    //     let differencePercentage = (differenceFromDayBefore / yesterdaysValue) * 100
+    //     const tickerObject = {
+    //         name: label,
+    //         value: todaysValue.toFixed(2),
+    //         percentage: differencePercentage.toFixed(2)
+    //     }
+    //     return tickerObject
 
-    }
     
    return(
     <>
