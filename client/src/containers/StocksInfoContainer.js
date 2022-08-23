@@ -135,8 +135,9 @@ const StocksInfoContainer = () => {
 
     
    return(
+    <>
+    <StockTicker ticker={ticker}/>
     <Wrapper>
-        <StockTicker ticker={ticker}/>
         <StockChart 
             IBM={IBMDaily} 
             AAPL={AAPLDaily} 
@@ -149,12 +150,21 @@ const StocksInfoContainer = () => {
             comparePercent={comparePercent}/>
         <SwitchYButton flipComparePercent={flipComparePercent}/>
     </Wrapper>
+    </>
+    
    )
 }
 
 
 const Wrapper = styled.div`
     position: relative;
+
+    
+    margin: 0 3rem;
+    
+    border: grey 1px solid;
+
+    box-shadow: 0 0 16px grey;
 `
 
 export default StocksInfoContainer
