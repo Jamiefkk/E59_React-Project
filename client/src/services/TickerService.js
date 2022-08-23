@@ -7,7 +7,7 @@ export const getDailyTickerDataBySymbol = (symbol) => {
             const newArray = []
             
             for (const object of data) {
-                if (newArray.length ==2) {
+                if (newArray.length === 2) {
                     break
                 }
                 const stockDate = Date.parse(object.date)
