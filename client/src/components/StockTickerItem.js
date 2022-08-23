@@ -4,24 +4,14 @@ const StockTickerItem = ({name, value, percentage}) => {
 
     const getPercentageNode = (percentage) => {
         if (percentage > 2.5) {
-            console.log(percentage);
-            console.log("VP");
             return <PercentageVeryPositive>({percentage}%)</PercentageVeryPositive>
         } else if ( (percentage < 2.5) && (percentage > 0 ) ) {
-            console.log(percentage);
-            console.log("P");
             return <PercentagePositive>({percentage}%)</PercentagePositive>
         } else if (percentage === 0) {
-            console.log(percentage);
-            console.log("E");
             return <PercentageEqual>({percentage}%)</PercentageEqual>
         } else if ((0 > percentage) && (percentage > -2.5)) {
-            console.log(percentage);
-            console.log("N");
             return <PercentageNegative>({percentage}%)</PercentageNegative>
         } else if (percentage < -2.5) {
-            console.log(percentage);
-            console.log("VN");
             return <PercentageVeryNegative>({percentage}%)</PercentageVeryNegative>
     }
     
