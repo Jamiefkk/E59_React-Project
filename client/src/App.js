@@ -8,6 +8,7 @@ function App() {
     <Wrapper>
       <Image src="FGHLogo.jpeg"></Image>
       <StocksInfoContainer/>
+      <br></br>
       <StocksPortfolioContainer/>
     </Wrapper>
   );

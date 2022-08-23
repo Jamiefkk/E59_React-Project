@@ -12,14 +12,17 @@ const StocksPortfolioContainer = () => {
     getStocks().then((allStocks)=>{
       setMyStocks(allStocks);
     })
-  }, [myStocks]);
-
-
+  }, []);
+  
+    const addToPortfolio = (stock) => {
+      const copyMyStocks = [...myStocks, stock]
+      setMyStocks(copyMyStocks)
+    }
   return (
     <>
       <OwnedShares myStocks={myStocks}/>
-      <StocksList/>
-      <Pie/>
+      <StocksList addToPortfolio={addToPortfolio}/>
+      <Pie myStocks={myStocks}/>
     </>
   )
 }

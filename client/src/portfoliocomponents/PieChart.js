@@ -4,15 +4,10 @@ import Highcharts from 'highcharts/highstock'
 import HighchartsReact from 'highcharts-react-official'
 import PieChart from "highcharts-react-official";
 
-const Pie = () => {
+const Pie = ({myStocks}) => {
 
-    const [myStocks, setMyStocks] = useState([])
 
-    useEffect(()=>{
-        getStocks().then((allStocks)=>{
-          setMyStocks(allStocks);
-        })
-      }, [myStocks]);
+
     const WMTArray = []
     const IBMArray = []
     const TSLAArray = []
@@ -86,6 +81,7 @@ const Pie = () => {
     const METAPercentage = (METATotal / portfolioTotal) * 100
     const NVDAPercentage = (NVDATotal / portfolioTotal) * 100
     const XOMPercentage = (XOMTotal / portfolioTotal) * 100
+    console.log(WMTPercentage);
 
     const options = {
         chart: {
@@ -116,7 +112,7 @@ const Pie = () => {
           }
         },
         series: [{
-          name: 'Symbols',
+          name: '% of Portfolio',
           colorByPoint: true,
           data: [{
             name: 'TSLA',
@@ -147,7 +143,7 @@ const Pie = () => {
           }]
         }]
       };
-    // console.log(WMTPercentage);
+    
 
     // const totWMT = WMTVal.length
     // const totIBM = IBMVal.length

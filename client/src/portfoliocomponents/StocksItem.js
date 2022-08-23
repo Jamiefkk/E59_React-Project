@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { postPurchase } from '../services/PortfolioService';
 
 
-const StocksItem = ({IBM, TSLA, AAPL, MSFT, META, NVDA, WMT, XOM}) => {
+const StocksItem = ({IBM, TSLA, AAPL, MSFT, META, NVDA, WMT, XOM, addToPortfolio}) => {
     const IBMArray = []
     const TSLAArray = []
     const AAPLArray = []
@@ -14,11 +14,13 @@ const StocksItem = ({IBM, TSLA, AAPL, MSFT, META, NVDA, WMT, XOM}) => {
     const XOMArray = []
 
     const handleClick = (event) => {
-        postPurchase({
+        const stockToPost = {
             key: event.target.name,
             purchaseValue: parseFloat(event.target.value),
             date: Date.now()
-        })
+        }
+        postPurchase(stockToPost)
+        addToPortfolio(stockToPost)
     }
 
     const IBMVal = IBM.map((n) => {
