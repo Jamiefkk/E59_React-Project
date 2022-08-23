@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import OwnedShares from '../portfoliocomponents/OwnedShares';
+import Pie from '../portfoliocomponents/PieChart';
 import StocksList from '../portfoliocomponents/StocksList';
 import { getStocks } from '../services/PortfolioService';
 
@@ -14,12 +15,11 @@ const StocksPortfolioContainer = () => {
   }, [myStocks]);
 
 
-
   return (
     <>
       <OwnedShares myStocks={myStocks}/>
       <StocksList/>
-
+      <Pie/>
     </>
   )
 }
