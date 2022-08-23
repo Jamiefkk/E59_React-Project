@@ -4,6 +4,7 @@ import styled from "styled-components"
 import StockTicker from "../components/StockTicker"
 import StockChart from "../StocksInfoComponents/StockChart"
 import { getDailyTickerDataBySymbol } from "../services/TickerService"
+import styled from "styled-components"
 import SwitchYButton from "../StocksInfoComponents/SwitchYButton"
 
 
@@ -150,6 +151,7 @@ const StocksInfoContainer = () => {
     </Wrapper>
    )
 }
+
 
 const Wrapper = styled.div`
     position: relative;

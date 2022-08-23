@@ -17,11 +17,13 @@ const tickerNodes = ticker.map((tickerObject, index) => {
 })
 
 return (
-        <Marquee pauseOnHover={true}>
+        <Marquee gradientColor={[250, 248, 240]} pauseOnHover={true}>
             {tickerNodes}
         </Marquee>
   )
 
 }
+
+
 
 export default StockTicker
