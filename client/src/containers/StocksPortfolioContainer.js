@@ -90,10 +90,22 @@ const StocksPortfolioContainer = () => {
   }, [])
   return (
     <>
-        <UserSelect users={users} changeSelectedUser={changeSelectedUser}/>
-        <StocksList addToPortfolio={addToPortfolio} selectedUser={selectedUser}/>
-        <OwnedShares IBM={IBMDaily} MSFT={MSFTDaily} META={METADaily} NVDA={NVDADaily} AAPL={AAPLDaily} WMT={WMTDaily} XOM={XOMDaily} TSLA={TSLADaily} myStocks={myStocks}/>
-        <Pie myStocks={myStocks}/>
+        <>
+            <UserSelect users={users} changeSelectedUser={changeSelectedUser}/>
+
+        </>
+
+        { 
+            selectedUser._id
+            ? 
+            <>
+                <StocksList addToPortfolio={addToPortfolio} selectedUser={selectedUser}/>
+                <OwnedShares IBM={IBMDaily} MSFT={MSFTDaily} META={METADaily} NVDA={NVDADaily} AAPL={AAPLDaily} WMT={WMTDaily} XOM={XOMDaily} TSLA={TSLADaily} myStocks={myStocks}/>
+                <Pie myStocks={myStocks}/>
+            </> 
+            :
+            null
+        }
       {/* <Compare IBM={IBMDaily} MSFT={MSFTDaily} META={METADaily} NVDA={NVDADaily} AAPL={AAPLDaily} WMT={WMTDaily} XOM={XOMDaily} TSLA={TSLADaily} myStocks={myStocks}/> */}
     </>
   )

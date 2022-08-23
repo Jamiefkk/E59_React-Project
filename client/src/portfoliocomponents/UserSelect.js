@@ -12,10 +12,13 @@ const UserSelect = ({users, changeSelectedUser}) => {
     }
 
     return(
-        <select onChange={onChange} defaultValue='selected'>
-            <option disabled value='selected'>Select A User</option>
-            {userOptions}
-        </select>
+        <>
+            <label htmlFor="user-select">User: </label>
+            <select name='user-select' onChange={onChange} defaultValue='selected'>
+                <option disabled value='selected'>Select A User</option>
+                {userOptions}
+            </select>
+        </>
     )
 }
 
