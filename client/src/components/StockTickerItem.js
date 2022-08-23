@@ -53,11 +53,11 @@ const PercentageEqual = styled.span`
 `
 const PercentageNegative = styled.span`
     margin-right: 5px;
-    color: red;
+    color: #660000;
 `
 const PercentageVeryNegative = styled.span`
     margin-right: 5px;
-    color: #660000;
+    color: red;
 `
 
 export default StockTickerItem
