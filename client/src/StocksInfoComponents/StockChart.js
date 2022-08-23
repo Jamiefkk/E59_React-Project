@@ -4,8 +4,14 @@ import HighchartsReact from 'highcharts-react-official'
 const StockChart = ({IBM, AAPL, MSFT, TSLA, XOM, WMT, NVDA, META, comparePercent}) => {
     const options = {
         title: {
-            text: 'Stock Chart'
+            text: 'Stock Value over Time',
+            style: {
+                color: '#345267'
+            }
             },
+        chart: {
+            spacing: [20, 50, 30, 50],
+        },
         scrollbar: {
             enabled: false
         },
