@@ -3,10 +3,15 @@ import Compare from '../portfoliocomponents/Compare';
 import OwnedShares from '../portfoliocomponents/OwnedShares';
 import Pie from '../portfoliocomponents/PieChart';
 import StocksList from '../portfoliocomponents/StocksList';
-import { getStocks } from '../services/PortfolioService';
+import UserSelect from '../portfoliocomponents/UserSelect';
+import { getStocks, getStocksByUserID } from '../services/PortfolioService';
 import { getDailyBySymbol } from '../services/PortfolioService';
+import { getUsers } from '../services/UsersService';
 
 const StocksPortfolioContainer = () => {
+
+    const [users, setUsers] = useState([])
+    const [selectedUser, setSelectedUser] = useState({name: ''})
 
   const [myStocks, setMyStocks] = useState([])
   const [IBMDaily, setIBMDaily] = useState([])
@@ -19,14 +24,25 @@ const StocksPortfolioContainer = () => {
   const [METADaily, setMETADaily] = useState([])
 
   useEffect(()=>{
-    getStocks().then((allStocks)=>{
-      setMyStocks(allStocks);
-    })
+    // getStocks().then((allStocks)=>{
+    //   setMyStocks(allStocks);
+    // })
+
+    getUsers().then(allUsers => setUsers(allUsers))
   }, []);
+
+  useEffect(()=> {
+    getStocksByUserID(selectedUser._id).then(portfolio => setMyStocks(portfolio))
+  }, [selectedUser])
   
     const addToPortfolio = (stock) => {
       const copyMyStocks = [...myStocks, stock]
       setMyStocks(copyMyStocks)
+    }
+
+    const changeSelectedUser = (i) => {
+        const copyUsers = [...users];
+        setSelectedUser(copyUsers[i]);
     }
 
     useEffect(() => {
@@ -73,9 +89,17 @@ const StocksPortfolioContainer = () => {
   }, [])
   return (
     <>
-      <OwnedShares IBM={IBMDaily} MSFT={MSFTDaily} META={METADaily} NVDA={NVDADaily} AAPL={AAPLDaily} WMT={WMTDaily} XOM={XOMDaily} TSLA={TSLADaily} myStocks={myStocks}/>
-      <StocksList addToPortfolio={addToPortfolio}/>
-      <Pie myStocks={myStocks}/>
+        <UserSelect users={users} changeSelectedUser={changeSelectedUser}/>
+        <StocksList addToPortfolio={addToPortfolio} selectedUser={selectedUser}/>
+      {selectedUser.name
+        ?
+      <>
+        <OwnedShares IBM={IBMDaily} MSFT={MSFTDaily} META={METADaily} NVDA={NVDADaily} AAPL={AAPLDaily} WMT={WMTDaily} XOM={XOMDaily} TSLA={TSLADaily} myStocks={myStocks}/>
+        <Pie myStocks={myStocks}/>
+      </>
+        :
+        null
+      }
       {/* <Compare IBM={IBMDaily} MSFT={MSFTDaily} META={METADaily} NVDA={NVDADaily} AAPL={AAPLDaily} WMT={WMTDaily} XOM={XOMDaily} TSLA={TSLADaily} myStocks={myStocks}/> */}
     </>
   )

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { postPurchase } from '../services/PortfolioService';
 
 
-const StocksItem = ({IBM, TSLA, AAPL, MSFT, META, NVDA, WMT, XOM, addToPortfolio}) => {
+const StocksItem = ({IBM, TSLA, AAPL, MSFT, META, NVDA, WMT, XOM, addToPortfolio, selectedUser}) => {
     const IBMArray = []
     const TSLAArray = []
     const AAPLArray = []
@@ -14,10 +14,12 @@ const StocksItem = ({IBM, TSLA, AAPL, MSFT, META, NVDA, WMT, XOM, addToPortfolio
     const XOMArray = []
 
     const handleClick = (event) => {
+        console.log('userId: ', selectedUser._id);
         const stockToPost = {
             key: event.target.name,
             purchaseValue: parseFloat(event.target.value),
-            date: Date.now()
+            date: Date.now(),
+            user: selectedUser
         }
         postPurchase(stockToPost)
         addToPortfolio(stockToPost)

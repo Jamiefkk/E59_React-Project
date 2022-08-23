@@ -24,7 +24,22 @@ export const getStocks = () => {
         .then(res => res.json())
 }
 
+export const getStocksByUserID = (id) => {
+    return fetch(baseURL)
+        .then(res => res.json())
+        .then((data) => {
+            const userPortfolio = []
+            for (const object in data) {
+                if (object.user._id === id) {
+                    userPortfolio.push(object)
+                }
+            return userPortfolio
+            }
+        })
+}
+
 export const postPurchase = (payload) => {
+    console.log(payload);
     return fetch(baseURL, {
         method: 'POST',
         body: JSON.stringify(payload),
