@@ -81,7 +81,7 @@ const Pie = ({myStocks}) => {
     const METAPercentage = (METATotal / portfolioTotal) * 100
     const NVDAPercentage = (NVDATotal / portfolioTotal) * 100
     const XOMPercentage = (XOMTotal / portfolioTotal) * 100
-    console.log(WMTPercentage);
+    
 
     const options = {
         chart: {
@@ -143,17 +143,6 @@ const Pie = ({myStocks}) => {
           }]
         }]
       };
-    
-
-    // const totWMT = WMTVal.length
-    // const totIBM = IBMVal.length
-    // const totTSLA = TSLAVal.length
-    // const totAAPL = AAPLVal.length
-    // const totMSFT = MSFTVal.length
-    // const totMETA = METAVal.length
-    // const totNVDA = NVDAVal.length
-    // const totXOM = XOMVal.length
-    // const sharesOwned = totAAPL + totIBM + totMETA + totMSFT + totNVDA + totTSLA + totWMT + totXOM
 
   return (
     <HighchartsReact highcharts={Highcharts} options={options} />
