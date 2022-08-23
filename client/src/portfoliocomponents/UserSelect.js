@@ -13,7 +13,6 @@ const UserSelect = ({users, changeSelectedUser}) => {
 
     return(
         <select onChange={onChange}>
-            <option selected disabled>select user</option>
             {userOptions}
         </select>
     )

@@ -52,14 +52,17 @@ db.users.insertMany([
     {
         name: 'Ethan',
         wallet: 1000,
+        portfolio: []
     },
     {
         name: 'Jamie',
         wallet: 4000,
+        portfolio: []
     },
     {
         name: 'Andrew',
         wallet: 9000,
+        portfolio: []
     }
 ])
 

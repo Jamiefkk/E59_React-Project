@@ -11,9 +11,10 @@ import { getUsers } from '../services/UsersService';
 const StocksPortfolioContainer = () => {
 
     const [users, setUsers] = useState([])
-    const [selectedUser, setSelectedUser] = useState({name: ''})
+    const [selectedUser, setSelectedUser] = useState(null)
 
   const [myStocks, setMyStocks] = useState([])
+
   const [IBMDaily, setIBMDaily] = useState([])
   const [AAPLDaily, setAAPLDaily] = useState([])
   const [MSFTDaily, setMSFTDaily] = useState([])
@@ -32,7 +33,13 @@ const StocksPortfolioContainer = () => {
   }, []);
 
   useEffect(()=> {
-    getStocksByUserID(selectedUser._id).then(portfolio => setMyStocks(portfolio))
+    console.log('type:' ,typeof(selectedUser._id));
+    if (selectedUser === null){
+        return
+    }
+    else {
+        getStocksByUserID(selectedUser._id).then(portfolio => setMyStocks(portfolio))
+    }
   }, [selectedUser])
   
     const addToPortfolio = (stock) => {
@@ -91,15 +98,8 @@ const StocksPortfolioContainer = () => {
     <>
         <UserSelect users={users} changeSelectedUser={changeSelectedUser}/>
         <StocksList addToPortfolio={addToPortfolio} selectedUser={selectedUser}/>
-      {selectedUser.name
-        ?
-      <>
         <OwnedShares IBM={IBMDaily} MSFT={MSFTDaily} META={METADaily} NVDA={NVDADaily} AAPL={AAPLDaily} WMT={WMTDaily} XOM={XOMDaily} TSLA={TSLADaily} myStocks={myStocks}/>
         <Pie myStocks={myStocks}/>
-      </>
-        :
-        null
-      }
       {/* <Compare IBM={IBMDaily} MSFT={MSFTDaily} META={METADaily} NVDA={NVDADaily} AAPL={AAPLDaily} WMT={WMTDaily} XOM={XOMDaily} TSLA={TSLADaily} myStocks={myStocks}/> */}
     </>
   )

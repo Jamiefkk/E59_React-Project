@@ -28,12 +28,18 @@ export const getStocksByUserID = (id) => {
     return fetch(baseURL)
         .then(res => res.json())
         .then((data) => {
-            const userPortfolio = []
-            for (const object in data) {
-                if (object.user._id === id) {
-                    userPortfolio.push(object)
+            if (data.length === 0) {
+                return data
+            }
+            else {
+                const userPortfolio = []
+                for (const object in data) {
+                    console.log('object in data:', object);
+                    if (object.user._id === id) {
+                        userPortfolio.push(object)
+                    }
+                return userPortfolio
                 }
-            return userPortfolio
             }
         })
 }
