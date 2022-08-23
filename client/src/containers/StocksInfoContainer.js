@@ -5,6 +5,7 @@ import HighchartsReact from 'highcharts-react-official'
 import StockTicker from "../components/StockTicker"
 import StockChart from "../StocksInfoComponents/StockChart"
 import { getDailyTickerDataBySymbol } from "../services/TickerService"
+import styled from "styled-components"
 
 
 
@@ -131,7 +132,6 @@ const StocksInfoContainer = () => {
    return(
     <>
       <StockTicker ticker={ticker}/>
-      <img src="FGHLogo.jpeg"></img>
       <StockChart 
         IBM={IBMDaily} 
         AAPL={AAPLDaily} 
@@ -144,6 +144,7 @@ const StocksInfoContainer = () => {
     </>
    )
 }
+
 
 export default StocksInfoContainer
 
