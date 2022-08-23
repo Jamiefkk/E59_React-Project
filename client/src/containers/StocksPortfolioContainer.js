@@ -11,7 +11,7 @@ import { getUsers, getUsersPortfolio } from '../services/UsersService';
 const StocksPortfolioContainer = () => {
 
     const [users, setUsers] = useState([])
-    const [selectedUser, setSelectedUser] = useState([])
+    const [selectedUser, setSelectedUser] = useState({})
 
   const [myStocks, setMyStocks] = useState([])
 
