@@ -63,12 +63,14 @@ const OwnedShares = ({myStocks, IBM, META, MSFT, XOM, AAPL, TSLA, WMT, NVDA}) =>
     })
 
     const cVal = ((WMTTD * totWMT) + (IBMTD * totIBM) + (TSLATD * totTSLA) + (AAPLTD * totAAPL) + (MSFTTD * totMSFT) + (parseInt(METATD + totMETA)) + (NVDATD * totNVDA) + (XOMTD * totXOM))
+    const percentageChange = (((cVal/portfolioTotal) * 100) - 100)
 
 
   return (
     <>
     <div>Total Portfolio Cost: ${portfolioTotal.toFixed(2)}</div>
     <div>Adjusted Current Value of Portfolio: ${cVal.toFixed(2)}</div>
+    <div>{percentageChange.toFixed(2)}% {percentageChange > 0 ? 'Gain on Investment' : 'Loss on Investment'}</div>
     </>
   )
 }
