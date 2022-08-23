@@ -1,7 +1,7 @@
 import Highcharts from 'highcharts/highstock'
 import HighchartsReact from 'highcharts-react-official'
 
-const StockChart = ({IBM, AAPL, MSFT, TSLA, XOM, WMT, NVDA, META}) => {
+const StockChart = ({IBM, AAPL, MSFT, TSLA, XOM, WMT, NVDA, META, comparePercent}) => {
     const options = {
         title: {
             text: 'Stock Chart'
@@ -18,50 +18,45 @@ const StockChart = ({IBM, AAPL, MSFT, TSLA, XOM, WMT, NVDA, META}) => {
             layout: 'vertical',
             verticalAlign: 'middle',
         },
+        plotOptions: null,
         series: [
         {
             data: IBM,
             name: 'IBM',
-            compare: 'percent'
 
         },
         {
             data: AAPL,
-            name: 'AAPL',
-            compare: 'percent'
+            name: 'AAPL'
         },
         {
             data: MSFT,
-            name: 'MSFT',
-            compare: 'percent'
+            name: 'MSFT'
         },
         {
             data: TSLA,
-            name: 'TSLA',
-            compare: 'percent'
+            name: 'TSLA'
         },
         {
             data: XOM,
-            name: 'XOM',
-            compare: 'percent'
+            name: 'XOM'
         },
         {
             data: NVDA,
-            name: 'NVDA',
-            compare: 'percent'
+            name: 'NVDA'
         },
         {
             data: META,
-            name: 'META',
-            compare: 'percent'
+            name: 'META'
         },
         {
             data: WMT,
-            name: 'WMT',
-            compare: 'percent'
+            name: 'WMT'
         },
         ]
     };
+
+    comparePercent ? options.plotOptions = {series: {compare: 'percent'}} : options.plotOptions = {series: {compare: 'value'}}
 
     return (
         <HighchartsReact 

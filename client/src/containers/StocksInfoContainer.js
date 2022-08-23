@@ -8,6 +8,7 @@ import { getDailyTickerDataBySymbol } from "../services/TickerService"
 
 const StocksInfoContainer = () => {
 
+    const[comparePercent, setComparePercent] = useState(true)
     
     const [IBMDaily, setIBMDaily] = useState([])
     const [AAPLDaily, setAAPLDaily] = useState([])
@@ -125,6 +126,10 @@ const StocksInfoContainer = () => {
 
     }
 
+    const flipComparePercent = () => {
+        setComparePercent(!comparePercent);
+    }
+
     
    return(
     <>
@@ -137,7 +142,8 @@ const StocksInfoContainer = () => {
         XOM={XOMDaily}
         WMT={WMTDaily}
         NVDA={NVDADaily}
-        META={METADaily} />
+        META={METADaily}
+        comparePercent={comparePercent}/>
     </>
    )
 }
