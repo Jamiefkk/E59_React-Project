@@ -131,6 +131,7 @@ const StocksInfoContainer = () => {
    return(
     <>
       <StockTicker ticker={ticker}/>
+      <img src="FGHLogo.jpeg"></img>
       <StockChart 
         IBM={IBMDaily} 
         AAPL={AAPLDaily} 
