@@ -66,6 +66,16 @@ const StocksInfoContainer = () => {
                     const tickerObject = createTickerData(tickerData, 'AAPL')
                     copyTicker.push(tickerObject)
                 })
+            getDailyTickerDataBySymbol('AMZN')
+                .then(tickerData => {
+                    const tickerObject = createTickerData(tickerData, 'AMZN')
+                    copyTicker.push(tickerObject)
+                })
+            getDailyTickerDataBySymbol('GOOGL')
+                .then(tickerData => {
+                    const tickerObject = createTickerData(tickerData, 'GOOGL')
+                    copyTicker.push(tickerObject)
+                })
             getDailyTickerDataBySymbol('MSFT')
                 .then(tickerData => {
                     const tickerObject = createTickerData(tickerData, 'MSFT')

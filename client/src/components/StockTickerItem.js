@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 const StockTickerItem = ({name, value, percentage}) => {
+
+    
     return(
         <Item className={percentage}>
             <Name>{name}: </Name> 
