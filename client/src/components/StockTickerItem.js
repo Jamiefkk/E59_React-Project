@@ -28,7 +28,8 @@ const StockTickerItem = ({name, value, percentage}) => {
 
 const Item = styled.div`
     display: flex;
-    margin-right: 10px 
+    margin-right: 10px;
+    padding: 0.5rem 0
 `
 
 const Name = styled.b`
@@ -53,9 +54,9 @@ const PercentageEqual = styled.span`
 `
 const PercentageNegative = styled.span`
     margin-right: 5px;
-    color: #660000;
+    color: red;
 `
-const PercentageVeryNegative = styled.span`
+const PercentageVeryNegative = styled.b`
     margin-right: 5px;
     color: red;
 `
