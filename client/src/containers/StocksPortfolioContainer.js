@@ -3,6 +3,7 @@ import Compare from '../portfoliocomponents/Compare';
 import OwnedShares from '../portfoliocomponents/OwnedShares';
 import Pie from '../portfoliocomponents/PieChart';
 import StocksList from '../portfoliocomponents/StocksList';
+import UserDetails from '../portfoliocomponents/UserDetails';
 import UserSelect from '../portfoliocomponents/UserSelect';
 import { getStocks, getStocksByUserID } from '../services/PortfolioService';
 import { getDailyBySymbol } from '../services/PortfolioService';
@@ -92,7 +93,7 @@ const StocksPortfolioContainer = () => {
     <>
         <>
             <UserSelect users={users} changeSelectedUser={changeSelectedUser}/>
-
+            <UserDetails selectedUser={selectedUser}/>
         </>
 
         { 
