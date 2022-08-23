@@ -40,6 +40,9 @@ const StocksPortfolioContainer = () => {
     const addToPortfolio = (stock) => {
       const copyMyStocks = [...myStocks, stock]
       setMyStocks(copyMyStocks)
+      const copySelectedUser = {...selectedUser}
+      copySelectedUser.wallet -= stock.purchaseValue
+      setSelectedUser(copySelectedUser)
     }
 
     const changeSelectedUser = (i) => {
@@ -93,13 +96,14 @@ const StocksPortfolioContainer = () => {
     <>
         <>
             <UserSelect users={users} changeSelectedUser={changeSelectedUser}/>
-            <UserDetails selectedUser={selectedUser}/>
+            
         </>
 
         { 
             selectedUser._id
             ? 
             <>
+                <UserDetails selectedUser={selectedUser}/>
                 <StocksList addToPortfolio={addToPortfolio} selectedUser={selectedUser}/>
                 <OwnedShares IBM={IBMDaily} MSFT={MSFTDaily} META={METADaily} NVDA={NVDADaily} AAPL={AAPLDaily} WMT={WMTDaily} XOM={XOMDaily} TSLA={TSLADaily} myStocks={myStocks}/>
                 <Pie myStocks={myStocks}/>
