@@ -17,8 +17,9 @@ const StockChart = ({IBM, AAPL, MSFT, TSLA, XOM, WMT, NVDA, META, comparePercent
             align: 'right',
             layout: 'vertical',
             verticalAlign: 'middle',
+            padding: 40
         },
-        plotOptions: null,
+        // plotOptions: undefined,
         series: [
         {
             data: IBM,
@@ -56,7 +57,7 @@ const StockChart = ({IBM, AAPL, MSFT, TSLA, XOM, WMT, NVDA, META, comparePercent
         ]
     };
 
-    comparePercent ? options.plotOptions = {series: {compare: 'percent'}} : options.plotOptions = {series: {compare: 'value'}}
+    comparePercent ? options.plotOptions = {series: {compare: 'percent'}} : options.plotOptions = {series: {compare: undefined}}
 
     return (
         <HighchartsReact 

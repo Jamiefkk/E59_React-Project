@@ -6,6 +6,7 @@ function App() {
   return (
     <>
       <StocksInfoContainer/>
+      <br></br>
       <StocksPortfolioContainer/>
     </>
   );

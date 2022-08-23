@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import { getDailyBySymbol } from "../services/StockServices"
-import Highcharts from 'highcharts/highstock'
-import HighchartsReact from 'highcharts-react-official'
+import styled from "styled-components"
 import StockTicker from "../components/StockTicker"
 import StockChart from "../StocksInfoComponents/StockChart"
 import { getDailyTickerDataBySymbol } from "../services/TickerService"
+import SwitchYButton from "../StocksInfoComponents/SwitchYButton"
 
 const StocksInfoContainer = () => {
 
@@ -132,21 +132,26 @@ const StocksInfoContainer = () => {
 
     
    return(
-    <>
-      <StockTicker ticker={ticker}/>
-      <StockChart 
-        IBM={IBMDaily} 
-        AAPL={AAPLDaily} 
-        MSFT={MSFTDaily}
-        TSLA={TSLADaily}
-        XOM={XOMDaily}
-        WMT={WMTDaily}
-        NVDA={NVDADaily}
-        META={METADaily}
-        comparePercent={comparePercent}/>
-    </>
+    <Wrapper>
+        <StockTicker ticker={ticker}/>
+        <StockChart 
+            IBM={IBMDaily} 
+            AAPL={AAPLDaily} 
+            MSFT={MSFTDaily}
+            TSLA={TSLADaily}
+            XOM={XOMDaily}
+            WMT={WMTDaily}
+            NVDA={NVDADaily}
+            META={METADaily}
+            comparePercent={comparePercent}/>
+        <SwitchYButton flipComparePercent={flipComparePercent}/>
+    </Wrapper>
    )
 }
+
+const Wrapper = styled.div`
+    position: relative;
+`
 
 export default StocksInfoContainer
 
