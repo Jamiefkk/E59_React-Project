@@ -12,7 +12,8 @@ const UserSelect = ({users, changeSelectedUser}) => {
     }
 
     return(
-        <select onChange={onChange}>
+        <select onChange={onChange} defaultValue='selected'>
+            <option disabled value='selected'>Select A User</option>
             {userOptions}
         </select>
     )
