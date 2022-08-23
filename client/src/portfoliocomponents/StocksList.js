@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import StocksItem from './StocksItem';
 import { getDailyBySymbol } from '../services/PortfolioService';
 
-const StocksList = () => {
+const StocksList = ({addToPortfolio}) => {
     
     const [IBMDaily, setIBMDaily] = useState([])
     const [AAPLDaily, setAAPLDaily] = useState([])
@@ -67,7 +67,7 @@ const StocksList = () => {
  
  return (
     <>
-        <StocksItem MSFT={MSFTDaily} META={METADaily} NVDA={NVDADaily} WMT={WMTDaily} XOM={XOMDaily} IBM={IBMDaily} TSLA={TSLADaily} AAPL={AAPLDaily}/>
+        <StocksItem addToPortfolio={addToPortfolio} MSFT={MSFTDaily} META={METADaily} NVDA={NVDADaily} WMT={WMTDaily} XOM={XOMDaily} IBM={IBMDaily} TSLA={TSLADaily} AAPL={AAPLDaily}/>
     </>
   )
 }
