@@ -5,9 +5,6 @@ import HighchartsReact from 'highcharts-react-official'
 import PieChart from "highcharts-react-official";
 
 const Pie = ({myStocks}) => {
-
-
-
     const WMTArray = []
     const IBMArray = []
     const TSLAArray = []
@@ -88,10 +85,15 @@ const Pie = ({myStocks}) => {
           plotBackgroundColor: null,
           plotBorderWidth: null,
           plotShadow: false,
-          type: 'pie'
+          type: 'pie',
+          height: 400,
+          width: 520
         },
         title: {
-          text: 'Percentage of Portfolio Value by Symbol'
+          text: 'Percentage of Portfolio Value by Symbol',
+          style: {
+            color: '#345267'
+          }
         },
         tooltip: {
           pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -106,8 +108,11 @@ const Pie = ({myStocks}) => {
             allowPointSelect: true,
             cursor: 'pointer',
             dataLabels: {
-              enabled: true,
-              format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+              formatter: function() {
+                if (this.y > 0) {
+                  return this.point.name + ': ' + Highcharts.numberFormat(this.point.percentage, 1) + ' %'
+                }
+              }
             }
           }
         },

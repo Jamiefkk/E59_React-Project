@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { getDailyBySymbol } from '../services/PortfolioService'
+import React from 'react'
 
-const OwnedShares = ({myStocks, IBM, META, MSFT, XOM, AAPL, TSLA, WMT, NVDA}) => {
+const OwnedShares = ({myStocks, getCVal}) => {
     const getPortfolioTotal = () => {
         if (myStocks.length === 0) return
         else {
@@ -38,46 +37,14 @@ const OwnedShares = ({myStocks, IBM, META, MSFT, XOM, AAPL, TSLA, WMT, NVDA}) =>
             const cValUserMETAStocks = META[0].y * userMETAStocks.length
             const cValUserNVDAStocks = NVDA[0].y * userNVDAStocks.length
             const cValUserXOMStocks = XOM[0].y * userXOMStocks.length
-           
-
-
-            // console.log('WMTD: ', WMTTD);
-            // console.log('totWMT: ', totWMT);
-
-
-            // console.log('IBMTD: ', IBMTD, typeof(IBMTD));
-            // console.log('totIBM: ', totIBM);
-
-            // console.log('TSLATD: ', TSLATD, typeof(TSLATD));
-            // console.log('totTSLA: ', totTSLA);
-
-            // console.log('AAPLTD: ', AAPLTD, typeof(AAPLTD));
-            // console.log('totAAPL: ', totAAPL);
-
-            // console.log('MSFTTD: ', MSFTTD, typeof(MSFTTD));
-            // console.log('totMSFT: ', totMSFT);
-
-            // console.log('METATD: ', METATD, typeof(METATD));
-            // console.log('totMETA: ', totMETA);
-
-            // console.log('NVDATD: ', NVDATD, typeof(NVDATD));
-            // console.log('totNVDA: ', totNVDA);
-
-            // console.log('XOMTD: ', XOMTD, typeof(XOMTD));
-            // console.log('totXOM: ', totXOM);
         
             const cVal = cValUserWMTStocks + cValUserIBMStocks + cValUserTSLAStocks + cValUserAAPLStocks + cValUserMSFTStocks + cValUserMETAStocks + cValUserNVDAStocks + cValUserXOMStocks
-
-            console.log('cVal during call', cVal);
             return cVal
         }
     }
   
     const portfolioTotal = getPortfolioTotal()
     const cVal = getCVal();
-
-    console.log('cVal after call: ', cVal);
-
   return (
     <>
 
@@ -85,8 +52,9 @@ const OwnedShares = ({myStocks, IBM, META, MSFT, XOM, AAPL, TSLA, WMT, NVDA}) =>
         <>Add some stocks to your portfolio</>
     : 
     <>
-        <div>Total Portfolio Cost: ${portfolioTotal.toFixed(2)}</div>
-        <div>Adjusted Current Value of Portfolio: ${cVal}</div>
+
+        <div>TPC: ${portfolioTotal.toFixed(2)}</div>
+        <div>ADJVal: ${cVal.toFixed(2)}</div>
     </>
     }
     </>
