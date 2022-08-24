@@ -91,73 +91,7 @@ const StocksPortfolioContainer = () => {
           })
   }, [])
 
-        const WMTVal = myStocks.filter((stock) => stock.key === "WMT")
-        const IBMVal = myStocks.filter((stock) => stock.key === "IBM")
-        const TSLAVal = myStocks.filter((stock) => stock.key === "TSLA")
-        const AAPLVal = myStocks.filter((stock) => stock.key === "AAPL")
-        const MSFTVal = myStocks.filter((stock) => stock.key === "MSFT")
-        const METAVal = myStocks.filter((stock) => stock.key === "META")
-        const NVDAVal = myStocks.filter((stock) => stock.key === "NVDA")
-        const XOMVal = myStocks.filter((stock) => stock.key === "XOM")
-    
-        const totWMT = WMTVal.length
-        const totIBM = IBMVal.length
-        const totTSLA = TSLAVal.length
-        const totAAPL = AAPLVal.length
-        const totMSFT = MSFTVal.length
-        const totMETA = METAVal.length
-        const totNVDA = NVDAVal.length
-        const totXOM = XOMVal.length
-    
-        let IBMTD = 0
-        const IBMT = IBMDaily.map((n) => {
-            IBMTD = n.y.toFixed(2)
-        })
-        let WMTTD = 0
-        const WMTT = WMTDaily.map((n) => {
-            WMTTD = n.y.toFixed(2)
-        })
-        let TSLATD = 0
-        const TSLAT = TSLADaily.map((n) => {
-            TSLATD = n.y.toFixed(2)
-        })
-        let AAPLTD = 0
-        const AAPLT = AAPLDaily.map((n) => {
-            AAPLTD = n.y.toFixed(2)
-        })
-        let MSFTTD = 0
-        const MSFTT = MSFTDaily.map((n) => {
-            MSFTTD = n.y.toFixed(2)
-        })
-        let METATD = 0
-        const METAT = METADaily.map((n) => {
-            METATD = n.y.toFixed(2)
-        })
-        let NVDATD = 0
-        const NVDAT = NVDADaily.map((n) => {
-            NVDATD = n.y.toFixed(2)
-        })
-        let XOMTD = 0
-        const XOMT = XOMDaily.map((n) => {
-            XOMTD = n.y.toFixed(2)
-        })
 
-        const XOMCVal = XOMTD * totXOM
-        const WMTCVal = WMTTD * totWMT
-        const NVDACVal = NVDATD * totNVDA
-        const METACVal = METATD * totMETA
-        const IBMCVal = IBMTD * totIBM
-        const MSFTCVal = MSFTTD * totMSFT
-        const TSLACVal = TSLATD * totTSLA
-        const AAPLCVal = AAPLTD * totAAPL
-
-  const getCVal = () => {
-    if (myStocks.length === 0) return
-    else {
-        const cVal = (WMTCVal + (IBMCVal) + (TSLACVal) + (AAPLCVal) + (MSFTCVal) + (METACVal) + (NVDACVal) + (XOMCVal))
-        return cVal
-    }
-}
   return (
     <>
         <>
@@ -173,12 +107,12 @@ const StocksPortfolioContainer = () => {
             <Wrapper>
                 <WeeWrapper>
                   <UserDetails selectedUser={selectedUser}/>
-                  <OwnedShares getCVal={getCVal} myStocks={myStocks}/>
+                  <OwnedShares myStocks={myStocks} IBMDaily={IBMDaily} WMTDaily={WMTDaily} TSLADaily ={TSLADaily} AAPLDaily={AAPLDaily} MSFTDaily={MSFTDaily} METADaily={METADaily} NVDADaily={NVDADaily} XOMDaily={XOMDaily}/>
                 </WeeWrapper>
                 <PieWrapper>
                 <Pie myStocks={myStocks}/>
                 </PieWrapper>
-                <CValPieChart AAPLCVal={AAPLCVal} TSLACVal={TSLACVal} IBMCVal={IBMCVal} MSFTCVal={MSFTCVal} METACVal={METACVal} NVDACVal={NVDACVal} WMTCVal={WMTCVal} XOMCVal={XOMCVal}/>
+                <CValPieChart myStocks={myStocks} IBMDaily={IBMDaily} WMTDaily={WMTDaily} TSLADaily ={TSLADaily} AAPLDaily={AAPLDaily} MSFTDaily={MSFTDaily} METADaily={METADaily} NVDADaily={NVDADaily} XOMDaily={XOMDaily}/>
                     <StocksList addToPortfolio={addToPortfolio} selectedUser={selectedUser}/>
             </Wrapper>
             </> 
