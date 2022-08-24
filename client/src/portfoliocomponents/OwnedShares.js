@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 const OwnedShares = ({myStocks, IBMDaily, WMTDaily, TSLADaily, AAPLDaily, MSFTDaily, METADaily, NVDADaily, XOMDaily}) => {
     const getPortfolioTotal = () => {
         if (myStocks.length === 0) return
@@ -45,6 +46,7 @@ const OwnedShares = ({myStocks, IBMDaily, WMTDaily, TSLADaily, AAPLDaily, MSFTDa
   
     const portfolioTotal = getPortfolioTotal()
     const cVal = getCVal();
+
   return (
     <>
 

@@ -90,8 +90,7 @@ const StocksPortfolioContainer = () => {
               setMETADaily(today)
           })
   }, [])
-
-
+  
   return (
     <>
         <>
@@ -99,7 +98,6 @@ const StocksPortfolioContainer = () => {
                 <UserSelect users={users} changeSelectedUser={changeSelectedUser}/>
             </SelectWrapper>
         </>
-
         { 
             selectedUser._id
             ? 

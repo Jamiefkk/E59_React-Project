@@ -41,28 +41,399 @@ const unpackStocks = async function(symbol, timePoint) {
 use stocks
 db.dropDatabase();
 
-// db.portfolio.insertOne(
-//     {key: 'IBM',
-//     purchaseValue: 138.37,
-//     date: Date.parse('2022-07-18')
-// }
-// )
-
 db.users.insertMany([
     {
         name: 'Ethan',
         wallet: 1000,
-        portfolio: []
+        portfolio: [
+            {
+                "key": "TSLA",
+                "purchaseValue": 877.51,
+                "date": 1661331149064
+              },
+            {
+                "key": "TSLA",
+                "purchaseValue": 877.51,
+                "date": 1661331149064
+              },
+            {
+                "key": "TSLA",
+                "purchaseValue": 877.51,
+                "date": 1661331149064
+              },
+            {
+                "key": "TSLA",
+                "purchaseValue": 877.51,
+                "date": 1661331149064
+              },
+            {
+                "key": "TSLA",
+                "purchaseValue": 877.51,
+                "date": 1661331149064
+              },
+            {
+                "key": "TSLA",
+                "purchaseValue": 877.51,
+                "date": 1661331149064
+              },
+            {
+                "key": "TSLA",
+                "purchaseValue": 877.51,
+                "date": 1661331149064
+              },
+            {
+                "key": "TSLA",
+                "purchaseValue": 877.51,
+                "date": 1661331149064
+              },
+            {
+                "key": "TSLA",
+                "purchaseValue": 877.51,
+                "date": 1661331149064
+              },
+            {
+                "key": "TSLA",
+                "purchaseValue": 877.51,
+                "date": 1661331149064
+              },
+            {
+                "key": "TSLA",
+                "purchaseValue": 877.51,
+                "date": 1661331149064
+              },
+            {
+                "key": "TSLA",
+                "purchaseValue": 877.51,
+                "date": 1661331149064
+              },
+            {
+                "key": "TSLA",
+                "purchaseValue": 877.51,
+                "date": 1661331149064
+              },
+            {
+                "key": "TSLA",
+                "purchaseValue": 877.51,
+                "date": 1661331149064
+              },
+            {
+                "key": "TSLA",
+                "purchaseValue": 877.51,
+                "date": 1661331149064
+              },
+            {
+                "key": "TSLA",
+                "purchaseValue": 877.51,
+                "date": 1661331149064
+              },
+            {
+                "key": "TSLA",
+                "purchaseValue": 877.51,
+                "date": 1661331149064
+              },
+            {
+                "key": "TSLA",
+                "purchaseValue": 877.51,
+                "date": 1661331149064
+              },
+            {
+                "key": "TSLA",
+                "purchaseValue": 877.51,
+                "date": 1661331149064
+              },
+            {
+                "key": "WMT",
+                "purchaseValue": 135.47,
+                "date": 1661331149064
+              },
+            {
+                "key": "WMT",
+                "purchaseValue": 135.47,
+                "date": 1661331149064
+              },
+            {
+                "key": "WMT",
+                "purchaseValue": 135.47,
+                "date": 1661331149064
+              },
+            {
+                "key": "WMT",
+                "purchaseValue": 135.47,
+                "date": 1661331149064
+              },
+            {
+                "key": "WMT",
+                "purchaseValue": 135.47,
+                "date": 1661331149064
+              },
+            {
+                "key": "WMT",
+                "purchaseValue": 135.47,
+                "date": 1661331149064
+              },
+            {
+                "key": "WMT",
+                "purchaseValue": 135.47,
+                "date": 1661331149064
+              },
+            {
+                "key": "WMT",
+                "purchaseValue": 135.47,
+                "date": 1661331149064
+              },
+            {
+                "key": "WMT",
+                "purchaseValue": 135.47,
+                "date": 1661331149064
+              },
+            {
+                "key": "WMT",
+                "purchaseValue": 135.47,
+                "date": 1661331149064
+              },
+            {
+                "key": "WMT",
+                "purchaseValue": 135.47,
+                "date": 1661331149064
+              },
+            {
+                "key": "WMT",
+                "purchaseValue": 135.47,
+                "date": 1661331149064
+              },
+            {
+                "key": "WMT",
+                "purchaseValue": 135.47,
+                "date": 1661331149064
+              },
+            {
+                "key": "WMT",
+                "purchaseValue": 135.47,
+                "date": 1661331149064
+              },
+            {
+                "key": "WMT",
+                "purchaseValue": 135.47,
+                "date": 1661331149064
+              },
+            {
+                "key": "WMT",
+                "purchaseValue": 135.47,
+                "date": 1661331149064
+              },
+            {
+                "key": "WMT",
+                "purchaseValue": 135.47,
+                "date": 1661331149064
+              },
+            {
+                "key": "WMT",
+                "purchaseValue": 135.47,
+                "date": 1661331149064
+              }
+        ]
     },
     {
         name: 'Jamie',
         wallet: 4000,
-        portfolio: []
+        portfolio: [
+            {
+              "key": "META",
+              "purchaseValue": 272.94,
+              "date": 1661331149064
+            },
+            {
+              "key": "META",
+              "purchaseValue": 272.94,
+              "date": 1661331149064
+            },
+            {
+              "key": "META",
+              "purchaseValue": 272.94,
+              "date": 1661331149064
+            },
+            {
+              "key": "META",
+              "purchaseValue": 272.94,
+              "date": 1661331149064
+            },
+            {
+              "key": "META",
+              "purchaseValue": 272.94,
+              "date": 1661331149064
+            },
+            {
+              "key": "NVDA",
+              "purchaseValue": 246.38,
+              "date": 1661331149900
+            },
+            {
+              "key": "NVDA",
+              "purchaseValue": 246.38,
+              "date": 1661331149900
+            },
+            {
+              "key": "NVDA",
+              "purchaseValue": 246.38,
+              "date": 1661331149900
+            },
+            {
+              "key": "NVDA",
+              "purchaseValue": 246.38,
+              "date": 1661331149900
+            },
+            {
+              "key": "NVDA",
+              "purchaseValue": 246.38,
+              "date": 1661331149900
+            },
+            {
+              "key": "NVDA",
+              "purchaseValue": 246.38,
+              "date": 1661331149900
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            }
+          ]
     },
     {
         name: 'Andrew',
         wallet: 9000,
-        portfolio: []
+        portfolio: [
+            {
+                "key": "META",
+                "purchaseValue": 272.94,
+                "date": 1661331149064
+              },
+              {
+                "key": "META",
+                "purchaseValue": 272.94,
+                "date": 1661331149064
+              },
+              {
+                "key": "META",
+                "purchaseValue": 272.94,
+                "date": 1661331149064
+              },
+              {
+                "key": "MSFT",
+                "purchaseValue": 315.41,
+                "date": 1661331151334
+              },
+              {
+                "key": "MSFT",
+                "purchaseValue": 315.41,
+                "date": 1661331151334
+              }
+        ]
     }
 ])
 

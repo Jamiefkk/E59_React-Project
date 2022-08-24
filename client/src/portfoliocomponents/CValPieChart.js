@@ -4,6 +4,7 @@ import Highcharts from 'highcharts/highstock'
 import HighchartsReact from 'highcharts-react-official'
 import PieChart from "highcharts-react-official";
 
+
 const CValPieChart = ({myStocks, IBMDaily, WMTDaily, TSLADaily, AAPLDaily, MSFTDaily, METADaily, NVDADaily, XOMDaily}) => {
 
   const userWMTStocks = myStocks.filter((stock) => stock.key === "WMT")
@@ -25,7 +26,6 @@ const CValPieChart = ({myStocks, IBMDaily, WMTDaily, TSLADaily, AAPLDaily, MSFTD
   const cValUserNVDAStocks = NVDADaily[0].y * userNVDAStocks.length
   const cValUserXOMStocks = XOMDaily[0].y * userXOMStocks.length
 
-
     const options = {
         chart: {
           plotBackgroundColor: null,
@@ -36,7 +36,7 @@ const CValPieChart = ({myStocks, IBMDaily, WMTDaily, TSLADaily, AAPLDaily, MSFTD
           width: 520
         },
         title: {
-          text: 'Percentage of Current Portfolio Value by Symbol'
+          text: `Percentage of Current Portfolio Value`
         },
         tooltip: {
           pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
