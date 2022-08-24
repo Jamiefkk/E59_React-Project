@@ -5,9 +5,6 @@ import HighchartsReact from 'highcharts-react-official'
 import PieChart from "highcharts-react-official";
 
 const Pie = ({myStocks}) => {
-
-
-
     const WMTArray = []
     const IBMArray = []
     const TSLAArray = []
