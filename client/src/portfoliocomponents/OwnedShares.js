@@ -20,66 +20,63 @@ const OwnedShares = ({myStocks, IBM, META, MSFT, XOM, AAPL, TSLA, WMT, NVDA}) =>
     const getCVal = () => {
         if (myStocks.length === 0) return
         else {
-            const WMTVal = myStocks.filter((stock) => stock.key === "WMT")
-            const IBMVal = myStocks.filter((stock) => stock.key === "IBM")
-            const TSLAVal = myStocks.filter((stock) => stock.key === "TSLA")
-            const AAPLVal = myStocks.filter((stock) => stock.key === "AAPL")
-            const MSFTVal = myStocks.filter((stock) => stock.key === "MSFT")
-            const METAVal = myStocks.filter((stock) => stock.key === "META")
-            const NVDAVal = myStocks.filter((stock) => stock.key === "NVDA")
-            const XOMVal = myStocks.filter((stock) => stock.key === "XOM")
+            const userWMTStocks = myStocks.filter((stock) => stock.key === "WMT")
+            const userIBMStocks = myStocks.filter((stock) => stock.key === "IBM")
+            const userTSLAStocks = myStocks.filter((stock) => stock.key === "TSLA")
+            const userAAPLStocks = myStocks.filter((stock) => stock.key === "AAPL")
+            const userMSFTStocks = myStocks.filter((stock) => stock.key === "MSFT")
+            const userMETAStocks = myStocks.filter((stock) => stock.key === "META")
+            const userNVDAStocks = myStocks.filter((stock) => stock.key === "NVDA")
+            const userXOMStocks = myStocks.filter((stock) => stock.key === "XOM")
         
-            const totWMT = WMTVal.length
-            const totIBM = IBMVal.length
-            const totTSLA = TSLAVal.length
-            const totAAPL = AAPLVal.length
-            const totMSFT = MSFTVal.length
-            const totMETA = METAVal.length
-            const totNVDA = NVDAVal.length
-            const totXOM = XOMVal.length
         
-            let IBMTD = 0
-            const IBMT = IBM.map((n) => {
-                IBMTD = n.y.toFixed(2)
-            })
-            let WMTTD = 0
-            const WMTT = WMT.map((n) => {
-                WMTTD = n.y.toFixed(2)
-            })
-            let TSLATD = 0
-            const TSLAT = TSLA.map((n) => {
-                TSLATD = n.y.toFixed(2)
-            })
-            let AAPLTD = 0
-            const AAPLT = AAPL.map((n) => {
-                AAPLTD = n.y.toFixed(2)
-            })
-            let MSFTTD = 0
-            const MSFTT = MSFT.map((n) => {
-                MSFTTD = n.y.toFixed(2)
-            })
-            let METATD = 0
-            const METAT = META.map((n) => {
-                METATD = n.y.toFixed(2)
-            })
-            let NVDATD = 0
-            const NVDAT = NVDA.map((n) => {
-                NVDATD = n.y.toFixed(2)
-            })
-            let XOMTD = 0
-            const XOMT = XOM.map((n) => {
-                XOMTD = n.y.toFixed(2)
-            })
-        
-            const cVal = ((WMTTD * totWMT) + (IBMTD * totIBM) + (TSLATD * totTSLA) + (AAPLTD * totAAPL) + (MSFTTD * totMSFT) + (parseInt(METATD + totMETA)) + (NVDATD * totNVDA) + (XOMTD * totXOM))
+            const cValUserWMTStocks = WMT[0].y * userWMTStocks.length
+            const cValUserIBMStocks = IBM[0].y * userIBMStocks.length
+            const cValUserTSLAStocks = TSLA[0].y * userTSLAStocks.length
+            const cValUserAAPLStocks = AAPL[0].y * userAAPLStocks.length
+            const cValUserMSFTStocks = MSFT[0].y * userMSFTStocks.length
+            const cValUserMETAStocks = META[0].y * userMETAStocks.length
+            const cValUserNVDAStocks = NVDA[0].y * userNVDAStocks.length
+            const cValUserXOMStocks = XOM[0].y * userXOMStocks.length
+           
 
 
+            // console.log('WMTD: ', WMTTD);
+            // console.log('totWMT: ', totWMT);
+
+
+            // console.log('IBMTD: ', IBMTD, typeof(IBMTD));
+            // console.log('totIBM: ', totIBM);
+
+            // console.log('TSLATD: ', TSLATD, typeof(TSLATD));
+            // console.log('totTSLA: ', totTSLA);
+
+            // console.log('AAPLTD: ', AAPLTD, typeof(AAPLTD));
+            // console.log('totAAPL: ', totAAPL);
+
+            // console.log('MSFTTD: ', MSFTTD, typeof(MSFTTD));
+            // console.log('totMSFT: ', totMSFT);
+
+            // console.log('METATD: ', METATD, typeof(METATD));
+            // console.log('totMETA: ', totMETA);
+
+            // console.log('NVDATD: ', NVDATD, typeof(NVDATD));
+            // console.log('totNVDA: ', totNVDA);
+
+            // console.log('XOMTD: ', XOMTD, typeof(XOMTD));
+            // console.log('totXOM: ', totXOM);
+        
+            const cVal = cValUserWMTStocks + cValUserIBMStocks + cValUserTSLAStocks + cValUserAAPLStocks + cValUserMSFTStocks + cValUserMETAStocks + cValUserNVDAStocks + cValUserXOMStocks
+
+            console.log('cVal during call', cVal);
             return cVal
         }
     }
   
     const portfolioTotal = getPortfolioTotal()
     const cVal = getCVal();
+
+    console.log('cVal after call: ', cVal);
 
   return (
     <>
@@ -89,7 +86,7 @@ const OwnedShares = ({myStocks, IBM, META, MSFT, XOM, AAPL, TSLA, WMT, NVDA}) =>
     : 
     <>
         <div>Total Portfolio Cost: ${portfolioTotal.toFixed(2)}</div>
-        <div>Adjusted Current Value of Portfolio: ${cVal.toFixed(2)}</div>
+        <div>Adjusted Current Value of Portfolio: ${cVal}</div>
     </>
     }
     </>
