@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import { getDailyBySymbol } from '../services/PortfolioService'
+import React from 'react'
 
 const OwnedShares = ({myStocks, getCVal}) => {
     const getPortfolioTotal = () => {

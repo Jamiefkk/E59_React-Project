@@ -70,14 +70,15 @@ const StocksItem = ({IBM, TSLA, AAPL, MSFT, META, NVDA, WMT, XOM, addToPortfolio
 
   return (
     <SharesDisplay>
-        <li>IBM: ${IBMArray[0]} {(IBMArray[0] > IBMArray[1]) ? <>📈</> : <>📉</>} <button name='IBM' value={IBMArray[0]} onClick={handleClick}>Add to Portfolio</button></li>
-        <li>TSLA: ${TSLAArray[0]} {(TSLAArray[0] > TSLAArray[1]) ? <>📈</> : <>📉</>} <button name='TSLA' value={TSLAArray[0]} onClick={handleClick}>Add to Portfolio</button></li>
-        <li>AAPL: ${AAPLArray[0]} {(AAPLArray[0] > AAPLArray[1]) ? <>📈</> : <>📉</>} <button name='AAPL' value={AAPLArray[0]} onClick={handleClick}>Add to Portfolio</button></li>
-        <li>MSFT: ${MSFTArray[0]} {(MSFTArray[0] > MSFTArray[1]) ? <>📈</> : <>📉</>} <button name='MSFT' value={MSFTArray[0]} onClick={handleClick}>Add to Portfolio</button></li>
-        <li>META: ${METAArray[0]} {(METAArray[0] > METAArray[1]) ? <>📈</> : <>📉</>} <button name='META' value={METAArray[0]} onClick={handleClick}>Add to Portfolio</button></li>
-        <li>NVDA: ${NVDAArray[0]} {(NVDAArray[0] > NVDAArray[1]) ? <>📈</> : <>📉</>} <button name='NVDA' value={NVDAArray[0]} onClick={handleClick}>Add to Portfolio</button></li>
-        <li>WMT: ${WMTArray[0]} {(WMTArray[0] > WMTArray[1]) ? <>📈</> : <>📉</>} <button name='WMT' value={WMTArray[0]} onClick={handleClick}>Add to Portfolio</button></li>
-        <li>XOM: ${XOMArray[0]} {(XOMArray[0] > XOMArray[1]) ? <>📈</> : <>📉</>} <button name='XOM' value={XOMArray[0]} onClick={handleClick}>Add to Portfolio</button></li>
+        <h3>Stocks:</h3>
+        <li>IBM: ${IBMArray[0]} {(IBMArray[0] > IBMArray[1]) ? <>📈</> : <>📉</>} <button name='IBM' value={IBMArray[0]} onClick={handleClick}>Buy Stock</button></li>
+        <li>TSLA: ${TSLAArray[0]} {(TSLAArray[0] > TSLAArray[1]) ? <>📈</> : <>📉</>} <button name='TSLA' value={TSLAArray[0]} onClick={handleClick}>Buy Stock</button></li>
+        <li>AAPL: ${AAPLArray[0]} {(AAPLArray[0] > AAPLArray[1]) ? <>📈</> : <>📉</>} <button name='AAPL' value={AAPLArray[0]} onClick={handleClick}>Buy Stock</button></li>
+        <li>MSFT: ${MSFTArray[0]} {(MSFTArray[0] > MSFTArray[1]) ? <>📈</> : <>📉</>} <button name='MSFT' value={MSFTArray[0]} onClick={handleClick}>Buy Stock</button></li>
+        <li>META: ${METAArray[0]} {(METAArray[0] > METAArray[1]) ? <>📈</> : <>📉</>} <button name='META' value={METAArray[0]} onClick={handleClick}>Buy Stock</button></li>
+        <li>NVDA: ${NVDAArray[0]} {(NVDAArray[0] > NVDAArray[1]) ? <>📈</> : <>📉</>} <button name='NVDA' value={NVDAArray[0]} onClick={handleClick}>Buy Stock</button></li>
+        <li>WMT: ${WMTArray[0]} {(WMTArray[0] > WMTArray[1]) ? <>📈</> : <>📉</>} <button name='WMT' value={WMTArray[0]} onClick={handleClick}>Buy Stock</button></li>
+        <li>XOM: ${XOMArray[0]} {(XOMArray[0] > XOMArray[1]) ? <>📈</> : <>📉</>} <button name='XOM' value={XOMArray[0]} onClick={handleClick}>Buy Stock</button></li>
         
     </SharesDisplay>
   )
