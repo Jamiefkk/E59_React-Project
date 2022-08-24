@@ -15,8 +15,10 @@ function App() {
   );
 }
 const Wrapper = styled.header`
-    background-color: #FAF8F0;
-
+    background-color: #f5f0da;
+    padding-bottom: 3rem;
+    height: 100%;
+    min-height: 100vh;
 `
 
 export default App;

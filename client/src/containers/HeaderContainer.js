@@ -85,11 +85,11 @@ return (
 )
 }
 const Image = styled.img`
-    border-radius: 50%;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 20%;
+    height: 140px;
+    width: 125px;
 
 `
 export default HeaderContainer
