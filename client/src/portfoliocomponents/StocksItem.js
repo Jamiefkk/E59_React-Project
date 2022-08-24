@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
 
-import { updateUser } from '../services/UsersService';
-
 
 const StocksItem = ({IBM, TSLA, AAPL, MSFT, META, NVDA, WMT, XOM, addToPortfolio, selectedUser}) => {
     const IBMArray = []
@@ -22,7 +20,6 @@ const StocksItem = ({IBM, TSLA, AAPL, MSFT, META, NVDA, WMT, XOM, addToPortfolio
         }
         if (sufficientFunds(stockToAdd)) {
             addToPortfolio(stockToAdd)
-            updateUser(selectedUser)
         } else {
             alert("Insufficient Funds")
         }

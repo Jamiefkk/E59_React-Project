@@ -5,9 +5,8 @@ import Pie from '../portfoliocomponents/PieChart';
 import StocksList from '../portfoliocomponents/StocksList';
 import UserDetails from '../portfoliocomponents/UserDetails';
 import UserSelect from '../portfoliocomponents/UserSelect';
-import { getStocks, getStocksByUserID } from '../services/PortfolioService';
 import { getDailyBySymbol } from '../services/PortfolioService';
-import { getUsers, getUsersPortfolio } from '../services/UsersService';
+import { getUsers, getUsersPortfolio, updateUser } from '../services/UsersService';
 
 const StocksPortfolioContainer = () => {
 
@@ -27,21 +26,20 @@ const StocksPortfolioContainer = () => {
 
     useEffect(()=>{
         getUsers().then(allUsers => setUsers(allUsers))
-    }, []);
 
-    useEffect(() => {
         if (selectedUser._id)
             getUsersPortfolio(selectedUser._id).then(portfolio => {
-                console.log(portfolio);
                 setMyStocks(portfolio)
             })
-    }, [selectedUser])
+    }, [selectedUser]);
   
     const addToPortfolio = (stockToAdd) => {
-      const copySelectedUser = {...selectedUser}
-      copySelectedUser.portfolio.push(stockToAdd)
-      copySelectedUser.wallet -= stockToAdd.purchaseValue
-      setSelectedUser(copySelectedUser)
+        const copySelectedUser = {...selectedUser}
+        copySelectedUser.portfolio.push(stockToAdd)
+        copySelectedUser.wallet -= stockToAdd.purchaseValue
+        
+        setSelectedUser(copySelectedUser)
+        updateUser(copySelectedUser)
     }
 
     const changeSelectedUser = (i) => {
