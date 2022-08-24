@@ -16,9 +16,35 @@ const OwnedShares = ({myStocks, getCVal}) => {
         }
         }
   
+    const getCVal = () => {
+        if (myStocks.length === 0) return
+        else {
+            const userWMTStocks = myStocks.filter((stock) => stock.key === "WMT")
+            const userIBMStocks = myStocks.filter((stock) => stock.key === "IBM")
+            const userTSLAStocks = myStocks.filter((stock) => stock.key === "TSLA")
+            const userAAPLStocks = myStocks.filter((stock) => stock.key === "AAPL")
+            const userMSFTStocks = myStocks.filter((stock) => stock.key === "MSFT")
+            const userMETAStocks = myStocks.filter((stock) => stock.key === "META")
+            const userNVDAStocks = myStocks.filter((stock) => stock.key === "NVDA")
+            const userXOMStocks = myStocks.filter((stock) => stock.key === "XOM")
+        
+        
+            const cValUserWMTStocks = WMT[0].y * userWMTStocks.length
+            const cValUserIBMStocks = IBM[0].y * userIBMStocks.length
+            const cValUserTSLAStocks = TSLA[0].y * userTSLAStocks.length
+            const cValUserAAPLStocks = AAPL[0].y * userAAPLStocks.length
+            const cValUserMSFTStocks = MSFT[0].y * userMSFTStocks.length
+            const cValUserMETAStocks = META[0].y * userMETAStocks.length
+            const cValUserNVDAStocks = NVDA[0].y * userNVDAStocks.length
+            const cValUserXOMStocks = XOM[0].y * userXOMStocks.length
+        
+            const cVal = cValUserWMTStocks + cValUserIBMStocks + cValUserTSLAStocks + cValUserAAPLStocks + cValUserMSFTStocks + cValUserMETAStocks + cValUserNVDAStocks + cValUserXOMStocks
+            return cVal
+        }
+    }
+  
     const portfolioTotal = getPortfolioTotal()
     const cVal = getCVal();
-
   return (
     <>
 
@@ -26,6 +52,7 @@ const OwnedShares = ({myStocks, getCVal}) => {
         <>Add some stocks to your portfolio</>
     : 
     <>
+
         <div>TPC: ${portfolioTotal.toFixed(2)}</div>
         <div>ADJVal: ${cVal.toFixed(2)}</div>
     </>

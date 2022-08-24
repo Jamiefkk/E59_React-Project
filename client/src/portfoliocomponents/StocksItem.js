@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
 
-import { updateUser } from '../services/UsersService';
-
 
 const StocksItem = ({IBM, TSLA, AAPL, MSFT, META, NVDA, WMT, XOM, addToPortfolio, selectedUser}) => {
     const IBMArray = []
@@ -15,16 +13,21 @@ const StocksItem = ({IBM, TSLA, AAPL, MSFT, META, NVDA, WMT, XOM, addToPortfolio
     const XOMArray = []
 
     const handleClick = (event) => {
-        console.log('selectedUser: ', selectedUser);
         const stockToAdd = {
             key: event.target.name,
             purchaseValue: parseFloat(event.target.value),
             date: Date.now(),
         }
-        selectedUser.portfolio.push(stockToAdd)
-        selectedUser.wallet -= stockToAdd.purchaseValue;
-        updateUser(selectedUser)
-        addToPortfolio(stockToAdd)
+        if (sufficientFunds(stockToAdd)) {
+            addToPortfolio(stockToAdd)
+        } else {
+            alert("Insufficient Funds")
+        }
+        
+    }
+
+    const sufficientFunds = (stockToAdd) => {
+        return selectedUser.wallet > stockToAdd.purchaseValue
     }
 
     const IBMVal = IBM.map((n) => {
