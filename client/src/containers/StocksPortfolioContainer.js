@@ -127,11 +127,11 @@ const Wrapper = styled.div`
     border: grey 1px solid;
     box-shadow: 0 0 16px grey;
     justify-content: space-between;
-    padding: 8px 16px
-
+    padding: 8px 16px;
+    background: white;
 `
 const PieWrapper = styled.div`
-    padding: 0 20px
+    padding: 0 15px 0 0
 `
 const WeeWrapper = styled.div`
     padding-left: 10px
