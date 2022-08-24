@@ -85,9 +85,10 @@ const StocksInfoContainer = () => {
 
 const Wrapper = styled.div`
     position: relative;
-    margin: 0 3rem 3rem 3rem;
+    margin: 0 3rem;
     border: grey 1px solid;
     box-shadow: 0 0 16px grey;
+    background-color: #f5f0da;
 `
 
 export default StocksInfoContainer
