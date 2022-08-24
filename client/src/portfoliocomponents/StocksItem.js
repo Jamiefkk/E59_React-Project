@@ -15,16 +15,22 @@ const StocksItem = ({IBM, TSLA, AAPL, MSFT, META, NVDA, WMT, XOM, addToPortfolio
     const XOMArray = []
 
     const handleClick = (event) => {
-        console.log('selectedUser: ', selectedUser);
         const stockToAdd = {
             key: event.target.name,
             purchaseValue: parseFloat(event.target.value),
             date: Date.now(),
         }
-        selectedUser.portfolio.push(stockToAdd)
-        selectedUser.wallet -= stockToAdd.purchaseValue;
-        updateUser(selectedUser)
-        addToPortfolio(stockToAdd)
+        if (sufficientFunds(stockToAdd)) {
+            addToPortfolio(stockToAdd)
+            updateUser(selectedUser)
+        } else {
+            alert("Insufficient Funds")
+        }
+        
+    }
+
+    const sufficientFunds = (stockToAdd) => {
+        return selectedUser.wallet > stockToAdd.purchaseValue
     }
 
     const IBMVal = IBM.map((n) => {

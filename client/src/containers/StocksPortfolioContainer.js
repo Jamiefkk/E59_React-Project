@@ -37,11 +37,10 @@ const StocksPortfolioContainer = () => {
             })
     }, [selectedUser])
   
-    const addToPortfolio = (stock) => {
-      const copyMyStocks = [...myStocks, stock]
-      setMyStocks(copyMyStocks)
+    const addToPortfolio = (stockToAdd) => {
       const copySelectedUser = {...selectedUser}
-      copySelectedUser.wallet -= stock.purchaseValue
+      copySelectedUser.portfolio.push(stockToAdd)
+      copySelectedUser.wallet -= stockToAdd.purchaseValue
       setSelectedUser(copySelectedUser)
     }
 
