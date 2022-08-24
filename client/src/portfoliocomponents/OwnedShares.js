@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { getDailyBySymbol } from '../services/PortfolioService'
 
 const OwnedShares = ({myStocks, IBM, META, MSFT, XOM, AAPL, TSLA, WMT, NVDA}) => {
-  
     const getPortfolioTotal = () => {
         if (myStocks.length === 0) return
         else {
@@ -74,6 +73,7 @@ const OwnedShares = ({myStocks, IBM, META, MSFT, XOM, AAPL, TSLA, WMT, NVDA}) =>
         
             const cVal = ((WMTTD * totWMT) + (IBMTD * totIBM) + (TSLATD * totTSLA) + (AAPLTD * totAAPL) + (MSFTTD * totMSFT) + (parseInt(METATD + totMETA)) + (NVDATD * totNVDA) + (XOMTD * totXOM))
 
+
             return cVal
         }
     }
@@ -83,6 +83,7 @@ const OwnedShares = ({myStocks, IBM, META, MSFT, XOM, AAPL, TSLA, WMT, NVDA}) =>
 
   return (
     <>
+
     {myStocks.length === 0 ? 
         <>Add some stocks to your portfolio</>
     : 
