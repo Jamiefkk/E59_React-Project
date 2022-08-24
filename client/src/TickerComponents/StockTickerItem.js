@@ -29,15 +29,15 @@ const StockTickerItem = ({name, value, percentage}) => {
 const Item = styled.div`
     display: flex;
     margin-right: 10px;
-    padding: 0.5rem 0
+    padding: 0.5rem 0;
 `
 
 const Name = styled.b`
-    margin-right: 5px 
+    margin-right: 5px; 
 
 `
 const Value = styled.span`
-    margin-right: 5px 
+    margin-right: 5px; 
 
 `
 const PercentageVeryPositive = styled.span`
