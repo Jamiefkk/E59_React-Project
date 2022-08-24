@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import StocksItem from './StocksItem';
-import { getDailyBySymbol } from '../services/PortfolioService';
+import { getDailyBySymbol } from '../services/UsersService';
 
 const StocksList = ({addToPortfolio, selectedUser}) => {
     

@@ -13,8 +13,6 @@ MongoClient.connect('mongodb://127.0.0.1:27017', { useUnifiedTopology: true })
   .then((client) => {
     const db = client.db('stocks');
 
-    const portfolioCollection = db.collection('portfolio');
-
     const usersCollection = db.collection('users');
 
     const IBMCollection = db.collection('IBMDaily');
@@ -42,11 +40,9 @@ MongoClient.connect('mongodb://127.0.0.1:27017', { useUnifiedTopology: true })
     const WMTRouter = createRouter(WMTCollection);
     const XOMRouter = createRouter(XOMCollection);
     
-    const portfolioRouter = createRouter(portfolioCollection);
     const usersRouter = createRouter(usersCollection);
     
     
-    app.use('/api/portfolio', portfolioRouter)
     app.use('/api/IBMDaily', IBMRouter);
     app.use('/api/AAPLDaily', AAPLRouter);
     app.use('/api/GOOGLDaily', GOOGLRouter);

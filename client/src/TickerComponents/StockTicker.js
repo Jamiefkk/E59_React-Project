@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import Marquee from 'react-fast-marquee'
 import StockTickerItem from './StockTickerItem'
 

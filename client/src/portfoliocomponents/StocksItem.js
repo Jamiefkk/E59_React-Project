@@ -72,23 +72,109 @@ const StocksItem = ({IBM, TSLA, AAPL, MSFT, META, NVDA, WMT, XOM, addToPortfolio
     })
 
   return (
-    <SharesDisplay>
-        <h3>Stocks:</h3>
-        <li>IBM: ${IBMArray[0]} {(IBMArray[0] > IBMArray[1]) ? <>📈</> : <>📉</>} <button name='IBM' value={IBMArray[0]} onClick={handleClick}>Buy Stock</button></li>
-        <li>TSLA: ${TSLAArray[0]} {(TSLAArray[0] > TSLAArray[1]) ? <>📈</> : <>📉</>} <button name='TSLA' value={TSLAArray[0]} onClick={handleClick}>Buy Stock</button></li>
-        <li>AAPL: ${AAPLArray[0]} {(AAPLArray[0] > AAPLArray[1]) ? <>📈</> : <>📉</>} <button name='AAPL' value={AAPLArray[0]} onClick={handleClick}>Buy Stock</button></li>
-        <li>MSFT: ${MSFTArray[0]} {(MSFTArray[0] > MSFTArray[1]) ? <>📈</> : <>📉</>} <button name='MSFT' value={MSFTArray[0]} onClick={handleClick}>Buy Stock</button></li>
-        <li>META: ${METAArray[0]} {(METAArray[0] > METAArray[1]) ? <>📈</> : <>📉</>} <button name='META' value={METAArray[0]} onClick={handleClick}>Buy Stock</button></li>
-        <li>NVDA: ${NVDAArray[0]} {(NVDAArray[0] > NVDAArray[1]) ? <>📈</> : <>📉</>} <button name='NVDA' value={NVDAArray[0]} onClick={handleClick}>Buy Stock</button></li>
-        <li>WMT: ${WMTArray[0]} {(WMTArray[0] > WMTArray[1]) ? <>📈</> : <>📉</>} <button name='WMT' value={WMTArray[0]} onClick={handleClick}>Buy Stock</button></li>
-        <li>XOM: ${XOMArray[0]} {(XOMArray[0] > XOMArray[1]) ? <>📈</> : <>📉</>} <button name='XOM' value={XOMArray[0]} onClick={handleClick}>Buy Stock</button></li>
-        
+   <SharesDisplay>
+        <h3>Available Stocks:</h3>
+        <ItemWrapper>
+            <Symbol>IBM: </Symbol>
+            <Price>${IBMArray[0]}</Price>
+            {(IBMArray[0] > IBMArray[1]) ? <Trend>📈</Trend> : <Trend>📉</Trend>} 
+            <Button name='IBM' value={IBMArray[0]} onClick={handleClick}>Buy</Button>
+        </ItemWrapper>
+
+        <ItemWrapper>
+            <Symbol>TSLA:</Symbol> 
+            <Price>${TSLAArray[0]}</Price> 
+            {(TSLAArray[0] > TSLAArray[1]) ? <Trend>📈</Trend> : <Trend>📉</Trend>}
+            <Button name='TSLA' value={TSLAArray[0]} onClick={handleClick}>Buy</Button>
+        </ItemWrapper>
+
+        <ItemWrapper>
+            <Symbol>AAPL: </Symbol> 
+            <Price>${AAPLArray[0]}</Price> 
+            {(AAPLArray[0] > AAPLArray[1]) ? <Trend>📈</Trend> : <Trend>📉</Trend>}
+            <Button name='AAPL' value={AAPLArray[0]} onClick={handleClick}>Buy</Button>
+        </ItemWrapper>
+
+        <ItemWrapper>
+            <Symbol>MSFT: </Symbol> 
+            <Price>${MSFTArray[0]}</Price> 
+            {(MSFTArray[0] > MSFTArray[1]) ? <Trend>📈</Trend> : <Trend>📉</Trend>}
+            <Button name='MSFT' value={MSFTArray[0]} onClick={handleClick}>Buy</Button>
+        </ItemWrapper>
+
+        <ItemWrapper>
+            <Symbol>META: </Symbol> 
+            <Price>${METAArray[0]} </Price>
+            {(METAArray[0] > METAArray[1]) ? <Trend>📈</Trend> : <Trend>📉</Trend>}
+            <Button name='META' value={METAArray[0]} onClick={handleClick}>Buy</Button>
+        </ItemWrapper>
+
+        <ItemWrapper>
+            <Symbol>NVDA: </Symbol> 
+            <Price>${NVDAArray[0]} </Price> 
+            {(NVDAArray[0] > NVDAArray[1]) ? <Trend>📈</Trend> : <Trend>📉</Trend>}
+            <Button name='NVDA' value={NVDAArray[0]} onClick={handleClick}>Buy</Button>
+        </ItemWrapper>
+
+        <ItemWrapper>
+            <Symbol>WMT: </Symbol>
+            <Price>${WMTArray[0]}</Price> 
+            {(WMTArray[0] > WMTArray[1]) ? <Trend>📈</Trend> : <Trend>📉</Trend>}
+            <Button name='WMT' value={WMTArray[0]} onClick={handleClick}>Buy</Button>
+        </ItemWrapper>
+
+        <ItemWrapper>
+            <Symbol>XOM: </Symbol>
+            <Price>${XOMArray[0]}</Price> 
+            {(XOMArray[0] > XOMArray[1]) ? <Trend>📈</Trend> : <Trend>📉</Trend>}
+            <Button name='XOM' value={XOMArray[0]} onClick={handleClick}>Buy</Button>
+        </ItemWrapper>
+
     </SharesDisplay>
   )
 }
 
 const SharesDisplay = styled.ul`
-list-style-type: none;
+    list-style-type: none;
+    width: 15%;
+    padding: 0;
+    margin-top: 0;
+
+`
+
+const ItemWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+`
+
+const Symbol = styled.b`
+    width: 30%;
+    text-align: right;
+`
+
+const Price = styled.span`
+    width: 30%
+`
+
+const Trend = styled.span``
+
+const Button = styled.button`
+    border: none;
+    font-size: 12px;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+
+    height: 22px;
+    width: 32px;
+
+    background-color: #f7f7f7;
+    color: #363636;
+
+    text-align: center;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #e6e6e6;
+    }
 `
 
 

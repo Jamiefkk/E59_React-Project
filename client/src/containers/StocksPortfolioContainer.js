@@ -5,7 +5,7 @@ import CValPieChart from '../portfoliocomponents/CValPieChart';
 import StocksList from '../portfoliocomponents/StocksList';
 import UserDetails from '../portfoliocomponents/UserDetails';
 import UserSelect from '../portfoliocomponents/UserSelect';
-import { getDailyBySymbol } from '../services/PortfolioService';
+import { getDailyBySymbol } from '../services/UsersService';
 import { getUsers, getUsersPortfolio, updateUser } from '../services/UsersService';
 import styled from 'styled-components';
 
@@ -122,7 +122,13 @@ const StocksPortfolioContainer = () => {
 }
 
 const Wrapper = styled.div`
-    display: flex
+    display: flex;
+    margin: 1rem 3rem;
+    border: grey 1px solid;
+    box-shadow: 0 0 16px grey;
+    justify-content: space-between;
+    padding: 8px 16px
+
 `
 const PieWrapper = styled.div`
     padding: 0 20px
