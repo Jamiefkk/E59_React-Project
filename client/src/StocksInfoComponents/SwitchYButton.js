@@ -16,8 +16,8 @@ const SwitchYButton = ({flipComparePercent}) => {
 
 const Wrapper = styled.div`
     position: absolute;
-    top: 63px;
-    left: 300px;
+    top: 54px;
+    left: 350px;
     display: flex;
     align-items: center;
 `
