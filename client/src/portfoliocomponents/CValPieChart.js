@@ -4,7 +4,27 @@ import Highcharts from 'highcharts/highstock'
 import HighchartsReact from 'highcharts-react-official'
 import PieChart from "highcharts-react-official";
 
-const CValPieChart = ({XOMCVal, WMTCVal, NVDACVal, METACVal, IBMCVal, MSFTCVal, TSLACVal, AAPLCVal}) => {
+const CValPieChart = ({myStocks, IBMDaily, WMTDaily, TSLADaily, AAPLDaily, MSFTDaily, METADaily, NVDADaily, XOMDaily}) => {
+
+  const userWMTStocks = myStocks.filter((stock) => stock.key === "WMT")
+  const userIBMStocks = myStocks.filter((stock) => stock.key === "IBM")
+  const userTSLAStocks = myStocks.filter((stock) => stock.key === "TSLA")
+  const userAAPLStocks = myStocks.filter((stock) => stock.key === "AAPL")
+  const userMSFTStocks = myStocks.filter((stock) => stock.key === "MSFT")
+  const userMETAStocks = myStocks.filter((stock) => stock.key === "META")
+  const userNVDAStocks = myStocks.filter((stock) => stock.key === "NVDA")
+  const userXOMStocks = myStocks.filter((stock) => stock.key === "XOM")
+  
+  
+  const cValUserWMTStocks = WMTDaily[0].y * userWMTStocks.length
+  const cValUserIBMStocks = IBMDaily[0].y * userIBMStocks.length
+  const cValUserTSLAStocks = TSLADaily[0].y * userTSLAStocks.length
+  const cValUserAAPLStocks = AAPLDaily[0].y * userAAPLStocks.length
+  const cValUserMSFTStocks = MSFTDaily[0].y * userMSFTStocks.length
+  const cValUserMETAStocks = METADaily[0].y * userMETAStocks.length
+  const cValUserNVDAStocks = NVDADaily[0].y * userNVDAStocks.length
+  const cValUserXOMStocks = XOMDaily[0].y * userXOMStocks.length
+
 
     const options = {
         chart: {
@@ -44,30 +64,30 @@ const CValPieChart = ({XOMCVal, WMTCVal, NVDACVal, METACVal, IBMCVal, MSFTCVal, 
           colorByPoint: true,
           data: [{
             name: 'TSLA',
-            y: TSLACVal,
+            y: cValUserTSLAStocks,
             sliced: true,
             selected: true
           }, {
             name: 'IBM',
-            y: IBMCVal
+            y: cValUserIBMStocks
           }, {
             name: 'MSFT',
-            y: MSFTCVal
+            y: cValUserMSFTStocks
           }, {
             name: 'META',
-            y: METACVal
+            y: cValUserMETAStocks
           }, {
             name: 'NVDA',
-            y: NVDACVal
+            y: cValUserNVDAStocks
           }, {
             name: 'WMT',
-            y: WMTCVal
+            y: cValUserWMTStocks
           }, {
             name: 'XOM',
-            y: XOMCVal
+            y: cValUserXOMStocks
           }, {
             name: 'AAPL',
-            y: AAPLCVal
+            y: cValUserAAPLStocks
           }]
         }]
       };
