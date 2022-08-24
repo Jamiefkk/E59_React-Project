@@ -4,7 +4,7 @@ const StockTickerItem = ({name, value, percentage}) => {
 
     const getPercentageNode = (percentage) => {
         if (percentage > 2.5) {
-            return <PercentageVeryPositive>({percentage}%)</PercentageVeryPositive>
+            return <PercentageVeryPositive>(💎{percentage}%💎)</PercentageVeryPositive>
         } else if ( (percentage < 2.5) && (percentage > 0 ) ) {
             return <PercentagePositive>({percentage}%)</PercentagePositive>
         } else if (percentage === 0) {

@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { getStocks } from '../services/PortfolioService'
+import React from 'react'
 import Highcharts from 'highcharts/highstock'
 import HighchartsReact from 'highcharts-react-official'
-import PieChart from "highcharts-react-official";
 
 const Pie = ({myStocks}) => {
     const WMTArray = []

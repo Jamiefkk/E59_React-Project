@@ -1,4 +1,5 @@
 const baseURL = 'http://localhost:9000/api/users/'
+const baseUrl = 'http://localhost:9000/api/'
 
 export const getUsers = () => {
     return fetch(baseURL)
@@ -19,3 +20,21 @@ export const updateUser = (payload) => {
     })
     .then(res => res.json())
 }
+
+export const getDailyBySymbol = (symbol) => {
+    return fetch(baseUrl + `${symbol}Daily`)
+        .then(res => res.json())
+        .then(data => {
+            const newArray = []
+            for (const object of data) {
+                const date = Date.parse(object.date)
+                const convertedObject = {
+                    x: date,
+                    y: parseFloat(object.info['4. close']),
+                    key: symbol
+                }
+                newArray.push(convertedObject)
+            }
+            return newArray
+        }
+    )};
