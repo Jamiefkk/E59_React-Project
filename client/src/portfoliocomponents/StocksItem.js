@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components'
-import { postPurchase } from '../services/PortfolioService';
+
+import { updateUser } from '../services/UsersService';
 
 
-const StocksItem = ({IBM, TSLA, AAPL, MSFT, META, NVDA, WMT, XOM, addToPortfolio}) => {
+const StocksItem = ({IBM, TSLA, AAPL, MSFT, META, NVDA, WMT, XOM, addToPortfolio, selectedUser}) => {
     const IBMArray = []
     const TSLAArray = []
     const AAPLArray = []
@@ -14,13 +15,16 @@ const StocksItem = ({IBM, TSLA, AAPL, MSFT, META, NVDA, WMT, XOM, addToPortfolio
     const XOMArray = []
 
     const handleClick = (event) => {
-        const stockToPost = {
+        console.log('selectedUser: ', selectedUser);
+        const stockToAdd = {
             key: event.target.name,
             purchaseValue: parseFloat(event.target.value),
-            date: Date.now()
+            date: Date.now(),
         }
-        postPurchase(stockToPost)
-        addToPortfolio(stockToPost)
+        selectedUser.portfolio.push(stockToAdd)
+        selectedUser.wallet -= stockToAdd.purchaseValue;
+        updateUser(selectedUser)
+        addToPortfolio(stockToAdd)
     }
 
     const IBMVal = IBM.map((n) => {

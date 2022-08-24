@@ -3,30 +3,51 @@ import Compare from '../portfoliocomponents/Compare';
 import OwnedShares from '../portfoliocomponents/OwnedShares';
 import Pie from '../portfoliocomponents/PieChart';
 import StocksList from '../portfoliocomponents/StocksList';
-import { getStocks } from '../services/PortfolioService';
+import UserDetails from '../portfoliocomponents/UserDetails';
+import UserSelect from '../portfoliocomponents/UserSelect';
+import { getStocks, getStocksByUserID } from '../services/PortfolioService';
 import { getDailyBySymbol } from '../services/PortfolioService';
+import { getUsers, getUsersPortfolio } from '../services/UsersService';
 
 const StocksPortfolioContainer = () => {
 
-  const [myStocks, setMyStocks] = useState([])
-  const [IBMDaily, setIBMDaily] = useState([])
-  const [AAPLDaily, setAAPLDaily] = useState([])
-  const [MSFTDaily, setMSFTDaily] = useState([])
-  const [TSLADaily, setTSLADaily] = useState([])
-  const [XOMDaily, setXOMDaily] = useState([])
-  const [WMTDaily, setWMTDaily] = useState([])
-  const [NVDADaily, setNVDADaily] = useState([])
-  const [METADaily, setMETADaily] = useState([])
+    const [users, setUsers] = useState([])
+    const [selectedUser, setSelectedUser] = useState({})
 
-  useEffect(()=>{
-    getStocks().then((allStocks)=>{
-      setMyStocks(allStocks);
-    })
-  }, []);
+    const [myStocks, setMyStocks] = useState([])
+
+    const [IBMDaily, setIBMDaily] = useState([])
+    const [AAPLDaily, setAAPLDaily] = useState([])
+    const [MSFTDaily, setMSFTDaily] = useState([])
+    const [TSLADaily, setTSLADaily] = useState([])
+    const [XOMDaily, setXOMDaily] = useState([])
+    const [WMTDaily, setWMTDaily] = useState([])
+    const [NVDADaily, setNVDADaily] = useState([])
+    const [METADaily, setMETADaily] = useState([])
+
+    useEffect(()=>{
+        getUsers().then(allUsers => setUsers(allUsers))
+    }, []);
+
+    useEffect(() => {
+        if (selectedUser._id)
+            getUsersPortfolio(selectedUser._id).then(portfolio => {
+                console.log(portfolio);
+                setMyStocks(portfolio)
+            })
+    }, [selectedUser])
   
     const addToPortfolio = (stock) => {
       const copyMyStocks = [...myStocks, stock]
       setMyStocks(copyMyStocks)
+      const copySelectedUser = {...selectedUser}
+      copySelectedUser.wallet -= stock.purchaseValue
+      setSelectedUser(copySelectedUser)
+    }
+
+    const changeSelectedUser = (i) => {
+        const copyUsers = [...users];
+        setSelectedUser(copyUsers[i]);
     }
 
     useEffect(() => {
@@ -73,9 +94,23 @@ const StocksPortfolioContainer = () => {
   }, [])
   return (
     <>
-      <OwnedShares IBM={IBMDaily} MSFT={MSFTDaily} META={METADaily} NVDA={NVDADaily} AAPL={AAPLDaily} WMT={WMTDaily} XOM={XOMDaily} TSLA={TSLADaily} myStocks={myStocks}/>
-      <StocksList addToPortfolio={addToPortfolio}/>
-      <Pie myStocks={myStocks}/>
+        <>
+            <UserSelect users={users} changeSelectedUser={changeSelectedUser}/>
+            
+        </>
+
+        { 
+            selectedUser._id
+            ? 
+            <>
+                <UserDetails selectedUser={selectedUser}/>
+                <StocksList addToPortfolio={addToPortfolio} selectedUser={selectedUser}/>
+                <OwnedShares IBM={IBMDaily} MSFT={MSFTDaily} META={METADaily} NVDA={NVDADaily} AAPL={AAPLDaily} WMT={WMTDaily} XOM={XOMDaily} TSLA={TSLADaily} myStocks={myStocks}/>
+                <Pie myStocks={myStocks}/>
+            </> 
+            :
+            null
+        }
       {/* <Compare IBM={IBMDaily} MSFT={MSFTDaily} META={METADaily} NVDA={NVDADaily} AAPL={AAPLDaily} WMT={WMTDaily} XOM={XOMDaily} TSLA={TSLADaily} myStocks={myStocks}/> */}
     </>
   )

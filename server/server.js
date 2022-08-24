@@ -15,32 +15,35 @@ MongoClient.connect('mongodb://127.0.0.1:27017', { useUnifiedTopology: true })
 
     const portfolioCollection = db.collection('portfolio');
 
+    const usersCollection = db.collection('users');
+
     const IBMCollection = db.collection('IBMDaily');
     const AAPLCollection = db.collection('AAPLDaily');
     const GOOGLCollection = db.collection('GOOGLDaily');
     const TSLACollection = db.collection('TSLADaily');
     const AMZNCollection = db.collection('AMZNDaily');
 
-    
-    const portfolioRouter = createRouter(portfolioCollection);
     const MSFTCollection = db.collection('MSFTDaily');
     const NVDACollection = db.collection('NVDADaily');
     const METACollection = db.collection('METADaily');
     const WMTCollection = db.collection('WMTDaily');
     const XOMCollection = db.collection('XOMDaily');
-
-
+    
+    
     const IBMRouter = createRouter(IBMCollection);
     const AAPLRouter = createRouter(AAPLCollection);
     const GOOGLRouter = createRouter(GOOGLCollection);
     const TSLARouter = createRouter(TSLACollection);
     const AMZNRouter = createRouter(AMZNCollection);
-
+    
     const MSFTRouter = createRouter(MSFTCollection);
     const NVDARouter = createRouter(NVDACollection);
     const METARouter = createRouter(METACollection);
     const WMTRouter = createRouter(WMTCollection);
     const XOMRouter = createRouter(XOMCollection);
+    
+    const portfolioRouter = createRouter(portfolioCollection);
+    const usersRouter = createRouter(usersCollection);
     
     
     app.use('/api/portfolio', portfolioRouter)
@@ -54,6 +57,8 @@ MongoClient.connect('mongodb://127.0.0.1:27017', { useUnifiedTopology: true })
     app.use('/api/METADaily', METARouter);
     app.use('/api/WMTDaily', WMTRouter);
     app.use('/api/XOMDaily', XOMRouter);
+
+    app.use('/api/users', usersRouter)
   })
   .catch(console.err);
 

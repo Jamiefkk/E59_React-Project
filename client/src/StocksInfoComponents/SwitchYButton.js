@@ -22,7 +22,7 @@ const Wrapper = styled.div`
     align-items: center;
 `
 
-const Text = styled.text`
+const Text = styled.span`
     color: rgb(102, 102, 102); 
     fill: rgb(102, 102, 102);
     margin-right: 5px;
