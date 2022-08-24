@@ -4,7 +4,7 @@ import Highcharts from 'highcharts/highstock'
 import HighchartsReact from 'highcharts-react-official'
 import PieChart from "highcharts-react-official";
 
-const CValPieChart = ({XOMCVal, WMTCVal, NVDACVal, METACVal, IBMCVal, MSFTCVal, TSLACVal, AAPLCVal}) => {
+const CValPieChart = ({cVal, XOMCVal, WMTCVal, NVDACVal, METACVal, IBMCVal, MSFTCVal, TSLACVal, AAPLCVal}) => {
 
     const options = {
         chart: {
@@ -16,7 +16,7 @@ const CValPieChart = ({XOMCVal, WMTCVal, NVDACVal, METACVal, IBMCVal, MSFTCVal, 
           width: 520
         },
         title: {
-          text: 'Percentage of Current Portfolio Value by Symbol'
+          text: `Percentage of Current Portfolio Value ($${cVal})`
         },
         tooltip: {
           pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'

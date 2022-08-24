@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { getDailyBySymbol } from '../services/PortfolioService'
 
-const OwnedShares = ({myStocks, getCVal}) => {
+const OwnedShares = ({myStocks, cVal}) => {
     const getPortfolioTotal = () => {
         if (myStocks.length === 0) return
         else {
@@ -18,7 +18,7 @@ const OwnedShares = ({myStocks, getCVal}) => {
         }
   
     const portfolioTotal = getPortfolioTotal()
-    const cVal = getCVal();
+
 
   return (
     <>

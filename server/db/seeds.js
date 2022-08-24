@@ -35,7 +35,7 @@ const unpackStocks = async function(symbol, timePoint) {
 
     })
 
-    return stockObjects.slice(0, 365)
+    return stockObjects.slice(0, 1000)
 }
 
 use stocks
@@ -57,7 +57,173 @@ db.users.insertMany([
     {
         name: 'Jamie',
         wallet: 4000,
-        portfolio: []
+        portfolio: [
+            {
+              "key": "META",
+              "purchaseValue": 272.94,
+              "date": 1661331149064
+            },
+            {
+              "key": "META",
+              "purchaseValue": 272.94,
+              "date": 1661331149064
+            },
+            {
+              "key": "META",
+              "purchaseValue": 272.94,
+              "date": 1661331149064
+            },
+            {
+              "key": "META",
+              "purchaseValue": 272.94,
+              "date": 1661331149064
+            },
+            {
+              "key": "META",
+              "purchaseValue": 272.94,
+              "date": 1661331149064
+            },
+            {
+              "key": "NVDA",
+              "purchaseValue": 246.38,
+              "date": 1661331149900
+            },
+            {
+              "key": "NVDA",
+              "purchaseValue": 246.38,
+              "date": 1661331149900
+            },
+            {
+              "key": "NVDA",
+              "purchaseValue": 246.38,
+              "date": 1661331149900
+            },
+            {
+              "key": "NVDA",
+              "purchaseValue": 246.38,
+              "date": 1661331149900
+            },
+            {
+              "key": "NVDA",
+              "purchaseValue": 246.38,
+              "date": 1661331149900
+            },
+            {
+              "key": "NVDA",
+              "purchaseValue": 246.38,
+              "date": 1661331149900
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            },
+            {
+              "key": "MSFT",
+              "purchaseValue": 315.41,
+              "date": 1661331151334
+            }
+          ]
     },
     {
         name: 'Andrew',
