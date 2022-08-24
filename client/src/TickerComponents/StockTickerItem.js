@@ -40,7 +40,7 @@ const Value = styled.span`
     margin-right: 5px; 
 
 `
-const PercentageVeryPositive = styled.span`
+const PercentageVeryPositive = styled.b`
     margin-right: 4px;
     color: gold;
 `
