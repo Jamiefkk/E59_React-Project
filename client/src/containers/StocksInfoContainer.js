@@ -5,6 +5,7 @@ import StockTicker from "../components/StockTicker"
 import StockChart from "../StocksInfoComponents/StockChart"
 import { getDailyTickerDataBySymbol } from "../services/TickerService"
 import SwitchYButton from "../StocksInfoComponents/SwitchYButton"
+import CompareHistoricalPrices from "../components/CompareHistoricalPrices"
 
 
 
@@ -149,6 +150,15 @@ const StocksInfoContainer = () => {
             comparePercent={comparePercent}/>
         <SwitchYButton flipComparePercent={flipComparePercent}/>
     </Wrapper>
+    <CompareHistoricalPrices
+                    IBM={IBMDaily} 
+                    AAPL={AAPLDaily} 
+                    MSFT={MSFTDaily}
+                    TSLA={TSLADaily}
+                    XOM={XOMDaily}
+                    WMT={WMTDaily}
+                    NVDA={NVDADaily}
+                    META={METADaily}/>
     </>
     
    )
