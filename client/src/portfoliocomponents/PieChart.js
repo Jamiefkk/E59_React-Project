@@ -88,7 +88,9 @@ const Pie = ({myStocks}) => {
           plotBackgroundColor: null,
           plotBorderWidth: null,
           plotShadow: false,
-          type: 'pie'
+          type: 'pie',
+          height: 400,
+          width: 520
         },
         title: {
           text: 'Percentage of Portfolio Value by Symbol'
@@ -106,8 +108,11 @@ const Pie = ({myStocks}) => {
             allowPointSelect: true,
             cursor: 'pointer',
             dataLabels: {
-              enabled: true,
-              format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+              formatter: function() {
+                if (this.y > 0) {
+                  return this.point.name + ': ' + Highcharts.numberFormat(this.point.percentage, 1) + ' %'
+                }
+              }
             }
           }
         },
