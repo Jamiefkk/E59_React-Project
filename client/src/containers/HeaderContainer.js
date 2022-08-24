@@ -87,7 +87,7 @@ const HeaderContainer = () => {
         return tickerObject
 
     }
- 
+  
   return (
     <>
     <Image src="FGHLogo.jpeg"></Image>
