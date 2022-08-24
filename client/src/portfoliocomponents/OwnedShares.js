@@ -60,7 +60,7 @@ const OwnedShares = ({myStocks, IBM, META, MSFT, XOM, AAPL, TSLA, WMT, NVDA}) =>
             })
             let METATD = 0
             const METAT = META.map((n) => {
-                METATD = n.y.toFixed(2)
+                METATD = parseFloat(n.y.toFixed(2))
             })
             let NVDATD = 0
             const NVDAT = NVDA.map((n) => {
@@ -70,8 +70,8 @@ const OwnedShares = ({myStocks, IBM, META, MSFT, XOM, AAPL, TSLA, WMT, NVDA}) =>
             const XOMT = XOM.map((n) => {
                 XOMTD = n.y.toFixed(2)
             })
-        
-            const cVal = ((WMTTD * totWMT) + (IBMTD * totIBM) + (TSLATD * totTSLA) + (AAPLTD * totAAPL) + (MSFTTD * totMSFT) + (parseInt(METATD + totMETA)) + (NVDATD * totNVDA) + (XOMTD * totXOM))
+            console.log(METATD);
+            const cVal = ((WMTTD * totWMT) + (IBMTD * totIBM) + (TSLATD * totTSLA) + (AAPLTD * totAAPL) + (MSFTTD * totMSFT) + (METATD + totMETA) + (NVDATD * totNVDA) + (XOMTD * totXOM))
 
 
             return cVal
@@ -88,8 +88,8 @@ const OwnedShares = ({myStocks, IBM, META, MSFT, XOM, AAPL, TSLA, WMT, NVDA}) =>
         <>Add some stocks to your portfolio</>
     : 
     <>
-        <div>Total Portfolio Cost: ${portfolioTotal.toFixed(2)}</div>
-        <div>Adjusted Current Value of Portfolio: ${cVal.toFixed(2)}</div>
+        <div>TPC: ${portfolioTotal.toFixed(2)}</div>
+        <div>ADJVal: ${cVal.toFixed(2)}</div>
     </>
     }
     </>
