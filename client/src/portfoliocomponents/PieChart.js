@@ -85,12 +85,13 @@ const Pie = ({myStocks}) => {
           plotShadow: false,
           type: 'pie',
           height: 400,
-          width: 520
+          width: 470
         },
         title: {
           text: 'Percentage of Portfolio Value by Symbol',
           style: {
-            color: '#345267'
+            color: '#345267',
+            fontSize: 18
           }
         },
         tooltip: {
@@ -116,32 +117,37 @@ const Pie = ({myStocks}) => {
         },
         series: [{
           name: '% of Portfolio',
+          dataLabels: {
+            style: {
+                fontSize: 8   
+            }
+        },
           colorByPoint: true,
           data: [{
-            name: 'TSLA',
+            name: `TSLA $${TSLATotal.toFixed(0)}`,
             y: TSLAPercentage,
             sliced: true,
             selected: true
           }, {
-            name: 'IBM',
+            name: `IBM $${IBMTotal.toFixed(0)}`,
             y: IBMPercentage
           }, {
-            name: 'MSFT',
+            name: `MSFT $${MSFTTotal.toFixed(0)}`,
             y: MSFTPercentage
           }, {
-            name: 'META',
+            name: `META $${METATotal.toFixed(0)}`,
             y: METAPercentage
           }, {
-            name: 'NVDA',
+            name: `NVDA $${NVDATotal.toFixed(0)}`,
             y: NVDAPercentage
           }, {
-            name: 'WMT',
+            name: `WMT $${WMTTotal.toFixed(0)}`,
             y: WMTPercentage
           }, {
-            name: 'XOM',
+            name: `XOM $${XOMTotal.toFixed(0)}`,
             y: XOMPercentage
           }, {
-            name: 'AAPL',
+            name: `AAPL $${AAPLTotal.toFixed(0)}`,
             y: AAPLPercentage
           }]
         }]

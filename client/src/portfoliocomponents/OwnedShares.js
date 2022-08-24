@@ -55,9 +55,9 @@ const OwnedShares = ({myStocks, IBMDaily, WMTDaily, TSLADaily, AAPLDaily, MSFTDa
     : 
     <>
 
-        <div>Investment: ${portfolioTotal.toFixed(2)}</div>
+        <div><b>Investment:</b> ${portfolioTotal.toFixed(2)}</div>
         <br></br>
-        <div>Portfolio Value: ${cVal.toFixed(2)}</div>
+        <div><b>PortfolioVal:</b> ${cVal.toFixed(2)}</div>
     </>
     }
     </>
