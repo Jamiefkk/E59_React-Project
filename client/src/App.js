@@ -14,7 +14,7 @@ function App() {
     </Wrapper>
   );
 }
-const Wrapper = styled.header`
+const Wrapper = styled.div`
     background-color: #FAF8F0;
 
 `

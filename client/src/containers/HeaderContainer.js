@@ -5,96 +5,82 @@ import { getDailyTickerDataBySymbol } from '../services/TickerService';
 
 const HeaderContainer = () => {
 
- const [ticker, setTicker] = useState([])
-
- function wait(milliseconds) {
-    const date = Date.now();
-    let currentDate = null;
-    do {
-      currentDate = Date.now();
-    } while (currentDate - date < milliseconds);
-  }
+ const [IBMTickerObject, setIBMTickerObject] = useState({})
+ const [AAPLTickerObject, setAAPLTickerObject] = useState({})
+ const [AMZNTickerObject, setAMZNTickerObject] = useState({})
+ const [GOOGLTickerObject, setGOOGLTickerObject] = useState({})
+ const [MSFTTickerObject, setMSFTTickerObject] = useState({})
+ const [TSLATickerObject, setTSLATickerObject] = useState({})
+ const [XOMTickerObject, setXOMTickerObject] = useState({})
+ const [WMTTickerObject, setWMTTickerObject] = useState({})
+ const [NVDATickerObject, setNVDATickerObject] = useState({})
+ const [METATickerObject, setMETATickerObject] = useState({})
 
  useEffect(() => {
-    const copyTicker = [...ticker]
-    
     getDailyTickerDataBySymbol('IBM')
-         .then(tickerData => {
-             const tickerObject = createTickerData(tickerData, 'IBM')
-             copyTicker.push(tickerObject)
+         .then(tickerObject => {
+            setIBMTickerObject(tickerObject)
          })
     getDailyTickerDataBySymbol('AAPL')
-         .then(tickerData => {
-             const tickerObject = createTickerData(tickerData, 'AAPL')
-             copyTicker.push(tickerObject)
+         .then(tickerObject => {
+             setAAPLTickerObject(tickerObject)
          })
     getDailyTickerDataBySymbol('AMZN')
-         .then(tickerData => {
-             const tickerObject = createTickerData(tickerData, 'AMZN')
-             copyTicker.push(tickerObject)
+         .then(tickerObject => {
+             setAMZNTickerObject(tickerObject)
          })
     getDailyTickerDataBySymbol('GOOGL')
-         .then(tickerData => {
-             const tickerObject = createTickerData(tickerData, 'GOOGL')
-             copyTicker.push(tickerObject)
+         .then(tickerObject => {
+             setGOOGLTickerObject(tickerObject)
          })
     getDailyTickerDataBySymbol('MSFT')
-         .then(tickerData => {
-             const tickerObject = createTickerData(tickerData, 'MSFT')
-             copyTicker.push(tickerObject)            
+         .then(tickerObject => {
+             setMSFTTickerObject(tickerObject)            
          })
     getDailyTickerDataBySymbol('TSLA')
-         .then(tickerData => {
-             const tickerObject = createTickerData(tickerData, 'TSLA')
-             copyTicker.push(tickerObject)            
+         .then(tickerObject => {
+             setTSLATickerObject(tickerObject)           
          })
     getDailyTickerDataBySymbol('XOM')
-         .then(tickerData => {
-             const tickerObject = createTickerData(tickerData, 'XOM')
-             copyTicker.push(tickerObject)            
+         .then(tickerObject => {
+             setXOMTickerObject(tickerObject)            
          })
     getDailyTickerDataBySymbol('WMT')
-         .then(tickerData => {
-             const tickerObject = createTickerData(tickerData, 'WMT')
-             copyTicker.push(tickerObject)
+         .then(tickerObject => {
+             setWMTTickerObject(tickerObject)
          })
     getDailyTickerDataBySymbol('NVDA')
-         .then(tickerData => {
-             const tickerObject = createTickerData(tickerData, 'NVDA')
-             copyTicker.push(tickerObject)              
+         .then(tickerObject => {
+             setNVDATickerObject(tickerObject)             
          })
     getDailyTickerDataBySymbol('META')
-         .then(tickerData => {
-             const tickerObject = createTickerData(tickerData, 'META')
-             copyTicker.push(tickerObject)
-         })
-    setTickerDelay(copyTicker)
+         .then(tickerObject => {
+             setMETATickerObject(tickerObject)
+         })     
  }, [])
-    const setTickerDelay = (copyTicker) => {
-        wait(3000)
-        setTicker(copyTicker)
-    }
-    const createTickerData = (loadedData, label) => {
-        let todaysValue = loadedData[0].value
-        let yesterdaysValue = loadedData[1].value
-        let differenceFromDayBefore = (todaysValue - yesterdaysValue)
-        let differencePercentage = (differenceFromDayBefore / yesterdaysValue) * 100
-        const tickerObject = {
-            name: label,
-            value: todaysValue.toFixed(2),
-            percentage: differencePercentage.toFixed(2)
-        }
-        return tickerObject
 
-    }
-  
-  return (
+
+
+return (
     <>
-    <Image src="FGHLogo.jpeg"></Image>
-    <StockTicker ticker={ticker}/>
+        <Image src="FGHLogo.jpeg"></Image>
+        <StockTicker 
+            IBM={IBMTickerObject} 
+            AAPL={AAPLTickerObject} 
+            AMZN={AMZNTickerObject}
+            GOOGL={GOOGLTickerObject}
+            MSFT={MSFTTickerObject}
+            TSLA={TSLATickerObject}
+            XOM={XOMTickerObject}
+            WMT={WMTTickerObject}
+            NVDA={NVDATickerObject} 
+            META={METATickerObject}
+            />
+        
     </>
   )
 }
+
 const Image = styled.img`
     border-radius: 50%;
     display: block;
