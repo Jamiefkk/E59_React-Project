@@ -93,7 +93,10 @@ const Pie = ({myStocks}) => {
           width: 520
         },
         title: {
-          text: 'Percentage of Portfolio Value by Symbol'
+          text: 'Percentage of Portfolio Value by Symbol',
+          style: {
+            color: '#345267'
+          }
         },
         tooltip: {
           pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'

@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import Compare from '../portfoliocomponents/Compare';
 import OwnedShares from '../portfoliocomponents/OwnedShares';
 import Pie from '../portfoliocomponents/PieChart';
 import StocksList from '../portfoliocomponents/StocksList';
 import UserDetails from '../portfoliocomponents/UserDetails';
 import UserSelect from '../portfoliocomponents/UserSelect';
-import { getStocks, getStocksByUserID } from '../services/PortfolioService';
 import { getDailyBySymbol } from '../services/PortfolioService';
 import { getUsers, getUsersPortfolio } from '../services/UsersService';
+import styled from 'styled-components';
 
 const StocksPortfolioContainer = () => {
 
@@ -103,17 +102,25 @@ const StocksPortfolioContainer = () => {
             selectedUser._id
             ? 
             <>
+            <Wrapper>
+                <weeWrapper>
                 <UserDetails selectedUser={selectedUser}/>
-                <StocksList addToPortfolio={addToPortfolio} selectedUser={selectedUser}/>
-                <OwnedShares IBM={IBMDaily} MSFT={MSFTDaily} META={METADaily} NVDA={NVDADaily} AAPL={AAPLDaily} WMT={WMTDaily} XOM={XOMDaily} TSLA={TSLADaily} myStocks={myStocks}/>
+                    <OwnedShares IBM={IBMDaily} MSFT={MSFTDaily} META={METADaily} NVDA={NVDADaily} AAPL={AAPLDaily} WMT={WMTDaily} XOM={XOMDaily} TSLA={TSLADaily} myStocks={myStocks}/>
+                </weeWrapper>
                 <Pie myStocks={myStocks}/>
+                <StocksList addToPortfolio={addToPortfolio} selectedUser={selectedUser}/>
+            </Wrapper>
             </> 
             :
             null
         }
-      {/* <Compare IBM={IBMDaily} MSFT={MSFTDaily} META={METADaily} NVDA={NVDADaily} AAPL={AAPLDaily} WMT={WMTDaily} XOM={XOMDaily} TSLA={TSLADaily} myStocks={myStocks}/> */}
     </>
   )
 }
+
+const Wrapper = styled.div`
+    display: flex
+`
+
 
 export default StocksPortfolioContainer;
