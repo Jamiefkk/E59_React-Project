@@ -32,7 +32,7 @@ const CValPieChart = ({myStocks, IBMDaily, WMTDaily, TSLADaily, AAPLDaily, MSFTD
           plotShadow: false,
           type: 'pie',
           height: 400,
-          width: 520
+          width: 470
         },
         title: {
           text: `Percentage of Current Portfolio Value`
@@ -60,32 +60,37 @@ const CValPieChart = ({myStocks, IBMDaily, WMTDaily, TSLADaily, AAPLDaily, MSFTD
         },
         series: [{
           name: '% of Portfolio',
+          dataLabels: {
+            style: {
+                fontSize: 8  
+            }
+        },
           colorByPoint: true,
           data: [{
-            name: 'TSLA',
+            name: `TSLA $${cValUserTSLAStocks.toFixed(0)}`,
             y: cValUserTSLAStocks,
             sliced: true,
             selected: true
           }, {
-            name: 'IBM',
+            name: `IBM $${cValUserIBMStocks.toFixed(0)}`,
             y: cValUserIBMStocks
           }, {
-            name: 'MSFT',
+            name: `MSFT $${cValUserMSFTStocks.toFixed(0)}`,
             y: cValUserMSFTStocks
           }, {
-            name: 'META',
+            name: `META $${cValUserMETAStocks.toFixed(0)}`,
             y: cValUserMETAStocks
           }, {
-            name: 'NVDA',
+            name: `NVDA $${cValUserNVDAStocks.toFixed(0)}`,
             y: cValUserNVDAStocks
           }, {
-            name: 'WMT',
+            name: `WMT $${cValUserWMTStocks.toFixed(0)}`,
             y: cValUserWMTStocks
           }, {
-            name: 'XOM',
+            name: `XOM $${cValUserXOMStocks.toFixed(0)}`,
             y: cValUserXOMStocks
           }, {
-            name: 'AAPL',
+            name: `AAPL $${cValUserAAPLStocks.toFixed(0)}`,
             y: cValUserAAPLStocks
           }]
         }]

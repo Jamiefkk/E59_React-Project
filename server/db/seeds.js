@@ -230,6 +230,61 @@ db.users.insertMany([
                 "key": "WMT",
                 "purchaseValue": 135.47,
                 "date": 1661331149064
+              },
+              {
+                "key": "XOM",
+                "purchaseValue": 64.33,
+                "date": 1661331149064
+              },
+              {
+                "key": "XOM",
+                "purchaseValue": 64.33,
+                "date": 1661331149064
+              },
+              {
+                "key": "XOM",
+                "purchaseValue": 64.33,
+                "date": 1661331149064
+              },
+              {
+                "key": "XOM",
+                "purchaseValue": 64.33,
+                "date": 1661331149064
+              },
+              {
+                "key": "XOM",
+                "purchaseValue": 64.33,
+                "date": 1661331149064
+              },
+              {
+                "key": "XOM",
+                "purchaseValue": 64.33,
+                "date": 1661331149064
+              },
+              {
+                "key": "XOM",
+                "purchaseValue": 64.33,
+                "date": 1661331149064
+              },
+              {
+                "key": "XOM",
+                "purchaseValue": 64.33,
+                "date": 1661331149064
+              },
+              {
+                "key": "XOM",
+                "purchaseValue": 64.33,
+                "date": 1661331149064
+              },
+              {
+                "key": "XOM",
+                "purchaseValue": 64.33,
+                "date": 1661331149064
+              },
+              {
+                "key": "XOM",
+                "purchaseValue": 64.33,
+                "date": 1661331149064
               }
         ]
     },
@@ -431,6 +486,48 @@ db.users.insertMany([
               {
                 "key": "MSFT",
                 "purchaseValue": 315.41,
+                "date": 1661331151334
+              },
+              {
+                "key": "AAPL",
+                "purchaseValue": 126.65,
+                "date": 1661331151334
+              },
+              {
+                "key": "AAPL",
+                "purchaseValue": 126.65,
+                "date": 1661331151334
+              },              {
+                "key": "AAPL",
+                "purchaseValue": 126.65,
+                "date": 1661331151334
+              },              {
+                "key": "AAPL",
+                "purchaseValue": 126.65,
+                "date": 1661331151334
+              },              {
+                "key": "AAPL",
+                "purchaseValue": 126.65,
+                "date": 1661331151334
+              },              {
+                "key": "AAPL",
+                "purchaseValue": 126.65,
+                "date": 1661331151334
+              },              {
+                "key": "AAPL",
+                "purchaseValue": 126.65,
+                "date": 1661331151334
+              },              {
+                "key": "AAPL",
+                "purchaseValue": 126.65,
+                "date": 1661331151334
+              },              {
+                "key": "AAPL",
+                "purchaseValue": 126.65,
+                "date": 1661331151334
+              },              {
+                "key": "AAPL",
+                "purchaseValue": 126.65,
                 "date": 1661331151334
               }
         ]

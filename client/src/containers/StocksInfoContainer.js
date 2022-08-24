@@ -88,6 +88,7 @@ const Wrapper = styled.div`
     margin: 0 3rem;
     border: grey 1px solid;
     box-shadow: 0 0 16px grey;
+    background-color: #f5f0da;
 `
 
 export default StocksInfoContainer
