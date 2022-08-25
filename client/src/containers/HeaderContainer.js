@@ -1,14 +1,14 @@
 import React, { useState, useEffect }from 'react'
 import StockTicker from '../TickerComponents/StockTicker'
 import styled from 'styled-components';
-import { getDailyTickerDataBySymbol } from '../services/TickerService';
+import { ALL_SYMBOLS, getDailyTickerDataBySymbol } from '../services/TickerService';
 
 const HeaderContainer = () => {
 
     const [ticker, setTicker] = useState([])
 
  useEffect(() => {
-    const symbols = []
+    const symbols = ALL_SYMBOLS
     
     const tickerPromises = symbols.map((symbol) => {
         return getDailyTickerDataBySymbol(symbol)
