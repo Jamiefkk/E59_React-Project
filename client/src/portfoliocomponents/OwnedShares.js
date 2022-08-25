@@ -46,6 +46,8 @@ const OwnedShares = ({myStocks, IBMDaily, WMTDaily, TSLADaily, AAPLDaily, MSFTDa
   
     const portfolioTotal = getPortfolioTotal()
     const cVal = getCVal();
+    const portfolioDifferenceVal = cVal - portfolioTotal
+    const portfolioPercentageVal = (portfolioDifferenceVal)/portfolioTotal * 100
 
   return (
     <>
@@ -58,6 +60,10 @@ const OwnedShares = ({myStocks, IBMDaily, WMTDaily, TSLADaily, AAPLDaily, MSFTDa
         <div><b>Investment:</b> ${portfolioTotal.toFixed(2)}</div>
         <br></br>
         <div><b>PortfolioVal:</b> ${cVal.toFixed(2)}</div>
+        <br></br>
+        <div><b>PortfolioDif:</b> ${portfolioDifferenceVal.toFixed(2)}</div>
+        <br></br>
+        <div><b>PortfolioPercentDif:</b> {portfolioPercentageVal.toFixed(2)}%</div>
     </>
     }
     </>
