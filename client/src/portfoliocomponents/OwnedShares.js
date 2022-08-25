@@ -63,7 +63,7 @@ const OwnedShares = ({myStocks, IBMDaily, WMTDaily, TSLADaily, AAPLDaily, MSFTDa
         <br></br>
         <div><b>PortfolioDif:</b> ${portfolioDifferenceVal.toFixed(2)}</div>
         <br></br>
-        <div><b>PortfolioPercentDif:</b> {portfolioPercentageVal.toFixed(2)}%</div>
+        <div><b>PercentDif:</b> <br></br>{portfolioPercentageVal.toFixed(2)}%</div>
     </>
     }
     </>
