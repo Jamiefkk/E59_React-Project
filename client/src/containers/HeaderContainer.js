@@ -8,7 +8,7 @@ const HeaderContainer = () => {
     const [ticker, setTicker] = useState([])
 
  useEffect(() => {
-    const symbols = ['IBM', 'AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA', 'XOM', 'WMT', 'WMT', 'NVDA', 'META']
+    const symbols = []
     
     const tickerPromises = symbols.map((symbol) => {
         return getDailyTickerDataBySymbol(symbol)
