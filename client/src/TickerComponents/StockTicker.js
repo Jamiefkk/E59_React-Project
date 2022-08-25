@@ -3,9 +3,9 @@ import Marquee from 'react-fast-marquee'
 import StockTickerItem from './StockTickerItem'
 
 
-const StockTicker = ({IBM, AAPL, AMZN, GOOGL, MSFT, TSLA, XOM, WMT, NVDA, META}) => {
+const StockTicker = ({ticker}) => {
 
-const ticker = [IBM, AAPL, AMZN, GOOGL, MSFT, TSLA, XOM, WMT, NVDA, META]
+// const ticker = [IBM, AAPL, AMZN, GOOGL, MSFT, TSLA, XOM, WMT, NVDA, META]
 
 const tickerNodes = ticker.map((tickerObject, index) => {
     return(
