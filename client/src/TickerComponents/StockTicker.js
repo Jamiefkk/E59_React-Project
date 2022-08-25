@@ -5,8 +5,6 @@ import StockTickerItem from './StockTickerItem'
 
 const StockTicker = ({ticker}) => {
 
-// const ticker = [IBM, AAPL, AMZN, GOOGL, MSFT, TSLA, XOM, WMT, NVDA, META]
-
 const tickerNodes = ticker.map((tickerObject, index) => {
     return(
         <StockTickerItem key={index}
