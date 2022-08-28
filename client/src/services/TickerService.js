@@ -29,3 +29,5 @@ export const getDailyTickerDataBySymbol = (symbol) => {
             return tickerObject
         }
     )};
+
+    export const ALL_SYMBOLS = ['IBM', 'AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA', 'XOM', 'WMT', 'WMT', 'NVDA', 'META']
