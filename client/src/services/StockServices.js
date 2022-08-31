@@ -1,5 +1,7 @@
 const baseUrl = 'http://localhost:9000/api/'
 
+export const ALL_SYMBOLS = ['IBM', 'AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA', 'XOM', 'WMT', 'NVDA', 'META']
+
 export const getDailyBySymbol = (stockSymbol) => {
     return fetch(baseUrl + `${stockSymbol}Daily`)
         .then(res => res.json())

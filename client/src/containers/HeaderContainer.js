@@ -1,7 +1,8 @@
 import React, { useState, useEffect }from 'react'
 import StockTicker from '../TickerComponents/StockTicker'
 import styled from 'styled-components';
-import { ALL_SYMBOLS, getDailyTickerDataBySymbol } from '../services/TickerService';
+import { ALL_SYMBOLS } from '../services/StockServices'
+import { getDailyTickerDataBySymbol } from '../services/TickerService';
 
 const HeaderContainer = () => {
 
