@@ -3,56 +3,68 @@ import { getDailyBySymbol } from "../services/StockServices"
 import styled from "styled-components"
 import StockChart from "../StocksInfoComponents/StockChart"
 import SwitchYButton from "../StocksInfoComponents/SwitchYButton"
+import { ALL_SYMBOLS } from "../services/TickerService"
 
 
 
 const StocksInfoContainer = () => {
 
-    const[comparePercent, setComparePercent] = useState(true)
+    const [comparePercent, setComparePercent] = useState(true)
+
+    const [dailyStockInfo, setDailyStockInfo] = useState([])
     
-    const [IBMDaily, setIBMDaily] = useState([])
-    const [AAPLDaily, setAAPLDaily] = useState([])
-    const [MSFTDaily, setMSFTDaily] = useState([])
-    const [TSLADaily, setTSLADaily] = useState([])
-    const [XOMDaily, setXOMDaily] = useState([])
-    const [WMTDaily, setWMTDaily] = useState([])
-    const [NVDADaily, setNVDADaily] = useState([])
-    const [METADaily, setMETADaily] = useState([])
+    // const [IBMDaily, setIBMDaily] = useState([])
+    // const [AAPLDaily, setAAPLDaily] = useState([])
+    // const [MSFTDaily, setMSFTDaily] = useState([])
+    // const [TSLADaily, setTSLADaily] = useState([])
+    // const [XOMDaily, setXOMDaily] = useState([])
+    // const [WMTDaily, setWMTDaily] = useState([])
+    // const [NVDADaily, setNVDADaily] = useState([])
+    // const [METADaily, setMETADaily] = useState([])
 
 
     useEffect( () => {
-        getDailyBySymbol('IBM')
-            .then(allDaily => {
-                setIBMDaily(allDaily)
-            })
-        getDailyBySymbol('AAPL')
-            .then(allDaily => {
-                setAAPLDaily(allDaily)
-            })
-        getDailyBySymbol('MSFT')
-            .then(allDaily => {
-                setMSFTDaily(allDaily)         
-            })
-        getDailyBySymbol('TSLA')
-            .then(allDaily => {
-                setTSLADaily(allDaily)         
-            })
-        getDailyBySymbol('XOM')
-            .then(allDaily => {
-                setXOMDaily(allDaily)   
-            })
-        getDailyBySymbol('WMT')
-            .then(allDaily => {
-                setWMTDaily(allDaily)
-            })
-        getDailyBySymbol('NVDA')
-            .then(allDaily => {
-                setNVDADaily(allDaily)        
-            })
-        getDailyBySymbol('META')
-            .then(allDaily => {
-                setMETADaily(allDaily)
-            })
+
+        const stockInfoPromises = ALL_SYMBOLS.map((symbol => {
+            return getDailyBySymbol(symbol)
+        }))
+
+        const stockInfoData = Promise.all(stockInfoPromises)
+
+        setDailyStockInfo(stockInfoData)
+
+        // getDailyBySymbol('IBM')
+        //     .then(allDaily => {
+        //         setIBMDaily(allDaily)
+        //     })
+        // getDailyBySymbol('AAPL')
+        //     .then(allDaily => {
+        //         setAAPLDaily(allDaily)
+        //     })
+        // getDailyBySymbol('MSFT')
+        //     .then(allDaily => {
+        //         setMSFTDaily(allDaily)         
+        //     })
+        // getDailyBySymbol('TSLA')
+        //     .then(allDaily => {
+        //         setTSLADaily(allDaily)         
+        //     })
+        // getDailyBySymbol('XOM')
+        //     .then(allDaily => {
+        //         setXOMDaily(allDaily)   
+        //     })
+        // getDailyBySymbol('WMT')
+        //     .then(allDaily => {
+        //         setWMTDaily(allDaily)
+        //     })
+        // getDailyBySymbol('NVDA')
+        //     .then(allDaily => {
+        //         setNVDADaily(allDaily)        
+        //     })
+        // getDailyBySymbol('META')
+        //     .then(allDaily => {
+        //         setMETADaily(allDaily)
+        //     })
 
     }, [])
 
@@ -66,6 +78,7 @@ const StocksInfoContainer = () => {
     <>
     <Wrapper>
         <StockChart 
+            dailyStockInfo={dailyStockInfo}
             IBM={IBMDaily} 
             AAPL={AAPLDaily} 
             MSFT={MSFTDaily}
