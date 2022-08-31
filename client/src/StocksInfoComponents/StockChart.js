@@ -1,17 +1,29 @@
 import Highcharts from 'highcharts/highstock'
 import HighchartsReact from 'highcharts-react-official'
 
-const StockChart = ({IBM, AAPL, MSFT, TSLA, XOM, WMT, NVDA, META, dailyStockInfo comparePercent}) => {
+const StockChart = ({IBM, AAPL, MSFT, TSLA, XOM, WMT, NVDA, META, dailyStockInfo, comparePercent}) => {
     
-    stockSeries = dailyStockInfo.map((stockData) => {
-        return {
-            data: {
-                x: stockData.x,
-                y: stockData.y
-            },
-            name: stockData.symbol
+    const stockSeries = dailyStockInfo.map((stockData) => {
+        
+        const dataArray = []
+
+        for (const object of stockData) {
+            const dataObject = {
+                    x: object.x,
+                    y: object.y
+            }
+            dataArray.push(dataObject)
         }
+
+        const seriesObject = {
+            data: dataArray,
+            name: stockData[0].symbol
+        }
+
+        return seriesObject
     })
+
+    console.log(stockSeries);
 
 
     const options = {

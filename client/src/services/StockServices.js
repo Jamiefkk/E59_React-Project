@@ -1,7 +1,7 @@
 const baseUrl = 'http://localhost:9000/api/'
 
-export const getDailyBySymbol = (symbol) => {
-    return fetch(baseUrl + `${symbol}Daily`)
+export const getDailyBySymbol = (stockSymbol) => {
+    return fetch(baseUrl + `${stockSymbol}Daily`)
         .then(res => res.json())
         .then(data => {
             const newArray = []
@@ -9,7 +9,8 @@ export const getDailyBySymbol = (symbol) => {
                 const date = Date.parse(object.date)
                 const convertedObject = {
                     x: date,
-                    y: parseFloat(object.info['4. close'])
+                    y: parseFloat(object.info['4. close']),
+                    symbol: stockSymbol
                 }
                 newArray.push(convertedObject)
             }

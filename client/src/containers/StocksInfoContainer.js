@@ -29,9 +29,7 @@ const StocksInfoContainer = () => {
             return getDailyBySymbol(symbol)
         }))
 
-        const stockInfoData = Promise.all(stockInfoPromises)
-
-        setDailyStockInfo(stockInfoData)
+        Promise.all(stockInfoPromises).then(data => setDailyStockInfo(data))
 
         // getDailyBySymbol('IBM')
         //     .then(allDaily => {
@@ -79,14 +77,14 @@ const StocksInfoContainer = () => {
     <Wrapper>
         <StockChart 
             dailyStockInfo={dailyStockInfo}
-            IBM={IBMDaily} 
-            AAPL={AAPLDaily} 
-            MSFT={MSFTDaily}
-            TSLA={TSLADaily}
-            XOM={XOMDaily}
-            WMT={WMTDaily}
-            NVDA={NVDADaily}
-            META={METADaily}
+            // IBM={IBMDaily} 
+            // AAPL={AAPLDaily} 
+            // MSFT={MSFTDaily}
+            // TSLA={TSLADaily}
+            // XOM={XOMDaily}
+            // WMT={WMTDaily}
+            // NVDA={NVDADaily}
+            // META={METADaily}
             comparePercent={comparePercent}/>
         <SwitchYButton flipComparePercent={flipComparePercent}/>
     </Wrapper>
