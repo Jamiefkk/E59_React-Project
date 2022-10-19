@@ -20,7 +20,8 @@ This application was built as a week long project whilst studying at CodeClan.
 
 ## Video
 
-https://user-images.githubusercontent.com/106377635/196733067-1a916355-3a3c-4867-ad9d-788a3b4a8209.mp4
+
+
 
 <br>
 
