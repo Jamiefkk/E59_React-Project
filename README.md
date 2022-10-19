@@ -21,6 +21,7 @@ This application was built as a week long project whilst studying at CodeClan.
 ## Video
 
 
+https://user-images.githubusercontent.com/106377635/196739782-6905f4fc-56f5-4187-bb54-c91ccc150220.mp4
 
 
 <br>
